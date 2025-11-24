@@ -62,7 +62,12 @@
         android:layout_height="140dp"
         app:cardCornerRadius="24dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="@color/goku_primary"
+
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/selector_card_green"
+        android:contentDescription="Tombol Menu Motor"
+        tools:ignore="HardcodedText"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="12dp"
         app:layout_constraintBottom_toTopOf="@id/cardTiket"
@@ -82,7 +87,12 @@
         android:layout_height="140dp"
         app:cardCornerRadius="24dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="@color/goku_primary"
+
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/selector_card_green"
+        android:contentDescription="Tombol Menu Mobil"
+        tools:ignore="HardcodedText"
         android:layout_marginBottom="24dp"
         android:layout_marginStart="12dp"
         app:layout_constraintBottom_toTopOf="@id/cardTiket"
@@ -102,7 +112,11 @@
         android:layout_height="100dp"
         app:cardCornerRadius="24dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="@color/goku_card_gray"
+
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/selector_card_gray"
+
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="50dp"
@@ -119,7 +133,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/tiket_bus"
+                android:src="@drawable/voucher"
                 app:tint="@color/white"/>
 
             <TextView
