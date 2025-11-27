@@ -26,6 +26,9 @@
         <activity
             android:name=".KonfirmasiJemputActivity"
             android:exported="false" />
+        <activity
+            android:name=".MencariDriverActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

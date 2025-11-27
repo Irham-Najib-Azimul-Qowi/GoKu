@@ -38,7 +38,6 @@ class InputJemputActivity : AppCompatActivity() {
             finish()
         }
 
-        // 5. Logika Tombol Konfirmasi
         btnKonfirmasi.setOnClickListener {
             val lokasiDari = etDari.text.toString()
             val lokasiKe = etKe.text.toString()
