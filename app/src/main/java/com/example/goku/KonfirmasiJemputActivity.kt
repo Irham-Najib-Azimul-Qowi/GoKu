@@ -32,10 +32,13 @@ class KonfirmasiJemputActivity : AppCompatActivity() {
         etPickup.setText(lokasiDari)
         etDest.setText(lokasiKe)
 
-        // 4. Logika Tombol Batal
-        // "user harus batal terlebih dahulu" -> Artinya kembali ke halaman sebelumnya
-        btnBatal.setOnClickListener {
-            finish() // Menutup halaman ini, kembali ke Halaman 2
+        try {// 4. Logika Tombol Batal
+            // "user harus batal terlebih dahulu" -> Artinya kembali ke halaman sebelumnya
+            btnBatal.setOnClickListener {
+                finish() // Menutup halaman ini, kembali ke Halaman 2
+            }
+        } catch (e: Exception) {
+            TODO("Not yet implemented")
         }
 
         // 5. Logika Tombol Cari Driver
