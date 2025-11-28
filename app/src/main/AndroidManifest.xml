@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoKu">
         <activity
+            android:name=".profil"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
