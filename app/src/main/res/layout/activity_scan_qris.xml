@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/goku_primary">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardQrContainer"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45">
+
+        <ImageView
+            android:id="@+id/ivQrCode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/scan_qris"
+            android:padding="16dp"
+            android:contentDescription="QR Code Pembayaran" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Scan QRIS untuk membayar"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardQrContainer"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRateDriver"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/selector_btn_white"
+        app:backgroundTint="@null"
+        android:text="Nilai Driver Kami"
+        android:textColor="@color/goku_primary"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:cornerRadius="19dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

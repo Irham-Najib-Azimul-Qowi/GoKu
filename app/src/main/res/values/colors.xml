@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-</resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="goku_primary">#00AA13</color>      <color name="goku_primary_dark">#006a0c</color> <color name="goku_accent_green">#50e22b</color> <color name="goku_card_gray">#757575</color>       <color name="goku_card_light">#d9d9d9</color>      <color name="goku_hover_light">#c5dbdd</color>     <color name="goku_hover_blue">#1db5e4</color>      <color name="goku_icon_gray">#877171</color>       <color name="goku_purple">#de37f8</color>          <color name="goku_red">#fe2d2d</color>             </resources>
