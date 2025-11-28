@@ -33,7 +33,7 @@
             android:background="@drawable/circle_background" android:layout_marginBottom="8dp"/>
 
         <TextView
-            android:id="@+id/user_nme"
+            android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lorem Ipsum Person"
