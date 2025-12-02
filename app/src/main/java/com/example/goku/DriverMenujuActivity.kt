@@ -24,6 +24,6 @@ class DriverMenujuActivity : AppCompatActivity() {
             intent.putExtra("TIPE_KENDARAAN", tipeKendaraan)
             startActivity(intent)
             finish()
-        }, 4000)
+        }, 3000)
     }
 }

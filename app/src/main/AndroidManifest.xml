@@ -43,6 +43,12 @@
         <activity
             android:name=".SampaiTujuanActivity"
             android:exported="false" />
+        <activity
+            android:name=".ScanQrisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelesaiActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

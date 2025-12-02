@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,6 +72,7 @@ class MenuActivity : AppCompatActivity() {
         // --- 3. ATUR FORMASI ---
         when (selectedMenu) {
             1 -> { // === HOME ACTIVE ===
+                gantiFragment(HomeFragment())
                 activeHome.visibility = View.VISIBLE
                 capsuleLeft.visibility = View.GONE // Kiri Kosong
 
@@ -113,5 +115,11 @@ class MenuActivity : AppCompatActivity() {
                 capsuleRight.visibility = View.GONE // Kanan Kosong
             }
         }
+    }
+
+    private fun gantiFragment(fragmet: androidx.fragment.app.Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragmet)
+            .commit()
     }
 }
