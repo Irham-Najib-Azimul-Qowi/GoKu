@@ -1,0 +1,29 @@
+package com.example.goku
+
+
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+class DriverMenujuActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_driver_menuju)
+
+        val tipeKendaraan = intent.getStringExtra("TIPE_KENDARAAN")
+        findViewById<View>(R.id.btnChat).setOnClickListener {
+            Toast.makeText(this, "Fitur Chat belum tersedia", Toast.LENGTH_SHORT).show()
+
+        }
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this, DalamPerjalananActivity::class.java)
+            intent.putExtra("TIPE_KENDARAAN", tipeKendaraan)
+            startActivity(intent)
+            finish()
+        }, 3000)
+    }
+}

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivMapDriver"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/map_menuju"
+        android:contentDescription="Peta Driver Menuju Lokasi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        app:cardBackgroundColor="#D9D9D9"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvStatusDriver"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Driver Sedang Menuju Lokasimu"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvEta"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvEta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5m"
+                android:textColor="@color/goku_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvStatusDriver"
+                app:layout_constraintBottom_toBottomOf="@id/tvStatusDriver"/>
+
+            <EditText
+                android:id="@+id/etPickupPoint"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/selector_input_field"
+                android:text="Kampus 1 PNM"
+                android:paddingStart="20dp"
+                android:paddingEnd="50dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:enabled="false"
+                app:layout_constraintTop_toBottomOf="@id/tvStatusDriver"
+                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/input_jemput"
+                android:contentDescription="Ikon Titik Jemput"
+                android:layout_marginEnd="16dp"
+                app:tint="@color/black"
+                app:layout_constraintEnd_toEndOf="@id/etPickupPoint"
+                app:layout_constraintTop_toTopOf="@id/etPickupPoint"
+                app:layout_constraintBottom_toBottomOf="@id/etPickupPoint" />
+
+            <EditText
+                android:id="@+id/etDestination"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/selector_input_field"
+                android:text="Gacoan"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:enabled="false"
+                app:layout_constraintTop_toBottomOf="@id/etPickupPoint"
+                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_driver_green"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/etDestination">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvProfile"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    app:cardCornerRadius="25dp"
+                    app:cardBackgroundColor="#CCCCCC"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/profile"
+                        android:scaleType="centerCrop"
+                        app:tint="#555555"
+                        android:contentDescription="Foto Driver"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvDriverName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem ipsum"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintStart_toEndOf="@id/cvProfile"
+                    app:layout_constraintTop_toTopOf="@id/cvProfile"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintStart_toStartOf="@id/tvDriverName"
+                    app:layout_constraintTop_toBottomOf="@id/tvDriverName">
+
+                    <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/bintang" app:tint="#FFD700" android:contentDescription="Bintang"/>
+                    <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/bintang" app:tint="#FFD700" android:contentDescription="Bintang"/>
+                    <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/bintang" app:tint="#FFD700" android:contentDescription="Bintang"/>
+                    <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/bintang" app:tint="#FFD700" android:contentDescription="Bintang"/>
+                    <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/bintang" app:tint="#FFD700" android:contentDescription="Bintang"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnChat"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/chat"
+                    app:tint="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="TouchTargetSizeCheck"
+                    android:contentDescription="Chat Driver" />
+
+                <ImageView
+                    android:id="@+id/btnCall"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/telepon"
+                    app:tint="@color/white"
+                    android:layout_marginEnd="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toStartOf="@id/btnChat"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="TouchTargetSizeCheck"
+                    android:contentDescription="Telepon Driver" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

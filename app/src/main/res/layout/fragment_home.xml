@@ -5,16 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".HomeFragment">
 
     <View
         android:id="@+id/viewGreenBackground"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="@color/goku_primary"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_card_home_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.73"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivMenu"
@@ -25,25 +28,29 @@
         android:layout_marginTop="24dp"
         app:tint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Menu Filter" />
 
     <EditText
         android:id="@+id/etSearch"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:background="@drawable/bg_search_rounded"
-        android:hint="Cari"
+        android:hint="Cari layanan..."
         android:paddingStart="20dp"
+        android:paddingEnd="16dp"
         android:textSize="14sp"
         android:inputType="text"
-        android:autofillHints="name"
+        android:maxLines="1"
+
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+
         app:layout_constraintStart_toEndOf="@id/ivMenu"
         app:layout_constraintEnd_toStartOf="@id/ivSearch"
         app:layout_constraintTop_toTopOf="@id/ivMenu"
         app:layout_constraintBottom_toBottomOf="@id/ivMenu"
-        tools:ignore="HardcodedText,RtlSymmetry" />
+        tools:ignore="Autofill,HardcodedText" />
 
     <ImageView
         android:id="@+id/ivSearch"
@@ -56,6 +63,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/ivMenu" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardMotor"
         android:layout_width="140dp"
@@ -65,11 +79,13 @@
 
         android:clickable="true"
         android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:contentDescription="Tombol Menu Layanan Motor"
+
         app:cardBackgroundColor="@color/selector_card_green"
-        android:contentDescription="Tombol Menu Motor"
-        tools:ignore="HardcodedText"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="12dp"
+
         app:layout_constraintBottom_toTopOf="@id/cardTiket"
         app:layout_constraintEnd_toStartOf="@+id/guidelineCenter">
 
@@ -90,11 +106,13 @@
 
         android:clickable="true"
         android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:contentDescription="Tombol Menu Layanan Mobil"
+
         app:cardBackgroundColor="@color/selector_card_green"
-        android:contentDescription="Tombol Menu Mobil"
-        tools:ignore="HardcodedText"
         android:layout_marginBottom="24dp"
         android:layout_marginStart="12dp"
+
         app:layout_constraintBottom_toTopOf="@id/cardTiket"
         app:layout_constraintStart_toEndOf="@+id/guidelineCenter">
 
@@ -115,11 +133,14 @@
 
         android:clickable="true"
         android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+
         app:cardBackgroundColor="@color/selector_card_gray"
 
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="50dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -133,7 +154,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/voucher"
+                android:src="@drawable/tiket_bus"
                 app:tint="@color/white"/>
 
             <TextView
@@ -146,12 +167,5 @@
                 android:layout_marginStart="16dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
