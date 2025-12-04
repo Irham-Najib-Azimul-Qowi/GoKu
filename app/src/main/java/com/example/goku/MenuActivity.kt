@@ -105,6 +105,7 @@ class MenuActivity : AppCompatActivity() {
             }
 
             4 -> { // === PROFILE ACTIVE ===
+                gantiFragment(ProfileFragment())
                 activeProfile.visibility = View.VISIBLE
 
                 capsuleLeft.visibility = View.VISIBLE

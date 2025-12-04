@@ -12,13 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoKu">
         <activity
-            android:name=".pesan"
-            android:exported="false" />
-        <activity
-            android:name=".profil"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:name=".MenuActivity"
             android:exported="true">
             <intent-filter>
