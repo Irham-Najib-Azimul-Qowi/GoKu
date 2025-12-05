@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/gokulogo"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat Datang"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="60dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMasuk"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Masuk"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@drawable/bg_banner_green"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDaftar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Daftar"
+        android:textColor="@color/goku_hover_blue"
+        android:textStyle="bold"
+        android:background="@drawable/bg_btn_outline_blue"
+        android:textAllCaps="false"/>
+
+</LinearLayout>
