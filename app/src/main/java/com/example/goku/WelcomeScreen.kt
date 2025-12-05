@@ -1,11 +1,11 @@
-package com.example.goku // Sesuaikan dengan nama paket kamu
+package com.example.goku
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button // Import Button
 
-class WelcomeActivity : AppCompatActivity() {
+class WelcomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome_screen) // <--- PASTIKAN INI BENAR
