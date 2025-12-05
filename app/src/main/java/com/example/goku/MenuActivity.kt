@@ -83,6 +83,7 @@ class MenuActivity : AppCompatActivity() {
             }
 
             2 -> { // === CHAT ACTIVE ===
+                gantiFragment(PesanFragment())
                 activeChat.visibility = View.VISIBLE
 
                 capsuleLeft.visibility = View.VISIBLE
@@ -94,6 +95,7 @@ class MenuActivity : AppCompatActivity() {
             }
 
             3 -> { // === HISTORY ACTIVE ===
+                gantiFragment(SejarahFragment())
                 activeHistory.visibility = View.VISIBLE
 
                 capsuleLeft.visibility = View.VISIBLE
@@ -105,6 +107,7 @@ class MenuActivity : AppCompatActivity() {
             }
 
             4 -> { // === PROFILE ACTIVE ===
+                gantiFragment(ProfileFragment())
                 activeProfile.visibility = View.VISIBLE
 
                 capsuleLeft.visibility = View.VISIBLE

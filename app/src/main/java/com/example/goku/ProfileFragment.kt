@@ -1,3 +1,5 @@
+// app/src/main/java/com/example/goku/ProfilFragment.kt
+
 package com.example.goku
 
 import android.os.Bundle
@@ -6,28 +8,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.widget.AppCompatButton
 
+//import android.widget.ImageButton // Import ImageButton
 
-class LupaPasswordFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_lupa_password, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         // 1. Dapatkan referensi ke ImageButton Edit Profil
-        val btnKembali: Button = view.findViewById(R.id.btnKembali)
+        val btnEditProfile: Button = view.findViewById(R.id.btn_edit_profile)
 
         // 2. Tambahkan Listener untuk navigasi
-        btnKembali.setOnClickListener {
+        btnEditProfile.setOnClickListener {
             // Membuat instance dari LupaPasswordFragment
-            val ProfileFragment = ProfileFragment()
+            val lupaPasswordFragment = LupaPasswordFragment()
 
             // Lakukan Fragment Transaction untuk mengganti Fragment
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ProfileFragment) // R.id.fragment_container adalah ID FrameLayout/tempat Fragment di MenuActivity
+                .replace(R.id.fragment_container, lupaPasswordFragment) // R.id.fragment_container adalah ID FrameLayout/tempat Fragment di MenuActivity
                 .addToBackStack(null) // Penting: Memungkinkan user menekan tombol back untuk kembali ke ProfilFragment
                 .commit()
         }
