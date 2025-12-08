@@ -60,6 +60,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/chatItem1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/chat_card"
@@ -113,6 +114,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/chatItem2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/chat_card"

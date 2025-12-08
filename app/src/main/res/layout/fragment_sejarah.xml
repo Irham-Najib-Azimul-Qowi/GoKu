@@ -20,6 +20,7 @@
         android:paddingBottom="10dp"/>
 
     <LinearLayout
+        android:id="@+id/etSearchHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -58,6 +59,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/cardHistory1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/history_card_sejarah"
@@ -145,7 +147,9 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnLagi1"
+                        android:textAllCaps="false"
                         android:layout_width="55dp"
                         android:layout_height="32dp"
                         android:gravity="center"
@@ -160,6 +164,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cardHistory2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/history_card_sejarah"
@@ -246,7 +251,9 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnLagi2"
+                        android:textAllCaps="false"
                         android:layout_width="55dp"
                         android:layout_height="32dp"
                         android:gravity="center"
