@@ -1,6 +1,8 @@
 package com.example.goku
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,12 +11,24 @@ import androidx.core.view.WindowInsetsCompat
 class ReviewBusActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        // Pastikan nama file XML layout kamu adalah activity_Review_bus.xml
         setContentView(R.layout.activity_review_bus)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // 1. Inisialisasi Tombol Kembali
+        val btnSubmitReview = findViewById<Button>(R.id.btnSubmitReview)
+
+
+        // --- LOGIKA KLIK ---
+
+        // Aksi Tombol Kembali (Menutup Activity)
+        btnSubmitReview.setOnClickListener {
+            finish() // Kembali ke halaman sebelumnya
         }
+
+        // Aksi Tombol Pakai 1
+        btnSubmitReview.setOnClickListener {
+            Toast.makeText(this, "Review Berhasil Dikirim!", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }
