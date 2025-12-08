@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <activity
         android:name=".WelcomeScreen"
         android:exported="false" />
@@ -78,9 +79,7 @@
         <activity
             android:name=".LupaPasswordActivity"
             android:exported="false" />
-        <activity
-            android:name=".LupaPasswordActivity2"
-            android:exported="false" />
+       =
     </application>
 
 </manifest>
