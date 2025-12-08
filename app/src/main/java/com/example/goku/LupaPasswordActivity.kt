@@ -1,37 +1,45 @@
 package com.example.goku
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.app.AppCompatActivity
+// Import kelas Activity yang sudah Anda buat
+// Pastikan nama kelas dan paketnya sudah benar!
+import com.example.goku.UbahPasswordActivity
 
 
-class LupaPasswordFragment : Fragment() {
+class LupaPasswordActivity : AppCompatActivity() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_lupa_password, container, false)
+    // Asumsikan layout XML untuk Activity ini adalah R.layout.activity_lupa_password
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_lupa_password)
 
-        // 1. Dapatkan referensi ke ImageButton Edit Profil
-        val btnKembali: Button = view.findViewById(R.id.btnKembali)
+        // 1. Dapatkan referensi ke tombol
+        // Pastikan ID ini sudah ada di activity_lupa_password.xml
+        val btnKembali: Button = findViewById(R.id.btnKembali)
+        val btnUbahPassword: Button = findViewById(R.id.btnUbahPassword)
 
-        // 2. Tambahkan Listener untuk navigasi
+        // 2. Logika Tombol Kembali (Mengarah ke Profile Fragment / Host Activity)
+        // Ketika LupaPasswordActivity diluncurkan dari MenuActivity (yang menampung ProfileFragment),
+        // memanggil finish() akan menutup Activity saat ini dan kembali ke Activity sebelumnya
+        // (MenuActivity), sehingga ProfileFragment akan terlihat lagi.
         btnKembali.setOnClickListener {
-            // Membuat instance dari LupaPasswordFragment
-            val ProfileFragment = ProfileFragment()
-
-            // Lakukan Fragment Transaction untuk mengganti Fragment
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ProfileFragment) // R.id.fragment_container adalah ID FrameLayout/tempat Fragment di MenuActivity
-                .addToBackStack(null) // Penting: Memungkinkan user menekan tombol back untuk kembali ke ProfilFragment
-                .commit()
+            // Tutup Activity saat ini untuk kembali ke Activity sebelumnya (MenuActivity/ProfileFragment)
+            finish()
         }
 
-        return view
+        // 3. Logika Tombol Ubah Password (Mengarah ke UbahPasswordActivity)
+        // Gunakan Intent untuk berpindah dari Activity ini ke Activity UbahPassword.
+        btnUbahPassword.setOnClickListener {
+            // Membuat Intent untuk meluncurkan UbahPasswordActivity
+            val intent = Intent(this, UbahPasswordActivity::class.java)
+            startActivity(intent)
+
+            // Opsional: Jika Anda ingin menutup LupaPasswordActivity dan tidak bisa
+            // kembali ke Activity ini dari UbahPasswordActivity, tambahkan:
+            // finish()
+        }
     }
 }

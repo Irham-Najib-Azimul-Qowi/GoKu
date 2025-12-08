@@ -58,6 +58,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoKu">
         <activity
+            android:name=".ReviewBusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PembayaranBusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TiketBusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UbahPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".PilihTiketActivity"
             android:exported="false" />
         <activity
