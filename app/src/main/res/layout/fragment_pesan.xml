@@ -19,35 +19,6 @@
         android:paddingTop="20dp"
         android:paddingBottom="10dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:gravity="center_vertical">
-
-        <EditText
-            android:id="@+id/search_chat"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="40dp"
-            android:background="@drawable/search_background"
-            android:hint="Cari"
-            android:paddingLeft="16dp"
-            android:textColor="#333"
-            android:textColorHint="#AAAAAA"
-            android:layout_marginRight="10dp"
-            tools:ignore="RtlSymmetry"/>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/cari"
-            app:tint="@color/goku_primary"
-            tools:ignore="ContentDescription" />
-    </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -73,35 +44,31 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:src="@drawable/profile"
+                    app:tint="@color/goku_card_gray"
                     android:background="@drawable/circle_mask"
-                    android:padding="8dp"
-                    app:tint="@color/goku_icon_gray"
-                    tools:ignore="ContentDescription" />
+                    android:padding="8dp"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingLeft="10dp"
-                    tools:ignore="RtlSymmetry">
+                    android:paddingLeft="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem Person"
+                        android:text="Driver Joko"
                         android:textStyle="bold"
                         android:textColor="#333333"
-                        android:textSize="15sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="15sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Halo pak"
                         android:textColor="#777777"
-                        android:textSize="13sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="13sp"/>
                 </LinearLayout>
 
                 <TextView
@@ -109,8 +76,7 @@
                     android:layout_height="wrap_content"
                     android:text="05 Nov"
                     android:textColor="#4CAF50"
-                    android:textSize="12sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -126,35 +92,31 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:src="@drawable/profile"
+                    app:tint="@color/goku_card_gray"
                     android:background="@drawable/circle_mask"
-                    android:padding="8dp"
-                    app:tint="@color/goku_icon_gray"
-                    tools:ignore="ContentDescription" />
+                    android:padding="8dp"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingLeft="10dp"
-                    tools:ignore="RtlSymmetry">
+                    android:paddingLeft="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem Person"
+                        android:text="Driver Riyan"
                         android:textStyle="bold"
                         android:textColor="#333333"
-                        android:textSize="15sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="15sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Halo pak"
                         android:textColor="#777777"
-                        android:textSize="13sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="13sp"/>
                 </LinearLayout>
 
                 <TextView
@@ -162,8 +124,7 @@
                     android:layout_height="wrap_content"
                     android:text="05 Nov"
                     android:textColor="#4CAF50"
-                    android:textSize="12sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
