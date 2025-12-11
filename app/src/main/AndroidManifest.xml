@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoKu">
         <activity
-            android:name=".MenuActivity"
+            android:name=".WelcomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapActivity"
+            android:name=".MenuActivity"
             android:exported="false" />
         <activity
             android:name=".InputJemputActivity"
@@ -52,6 +52,32 @@
         <activity
             android:name=".SelesaiActivity"
             android:exported="false" />
+        <activity
+            android:name=".PilihTiketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TiketBusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UbahPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PembayaranBusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CallActivity"
+            android:exported="false" />
+
+
 
     </application>
 
