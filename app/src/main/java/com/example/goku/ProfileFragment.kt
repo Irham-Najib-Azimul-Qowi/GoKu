@@ -28,10 +28,10 @@ class ProfileFragment : Fragment() {
 
         // 2. Logika Tombol Edit Profil -> EditProfileActivity
         // Mengganti navigasi Fragment lama dengan Intent ke Activity
-        btnEditProfile.setOnClickListener {
-            val intent = Intent(requireContext(), EditProfileActivity::class.java)
-            startActivity(intent)
-        }
+//        btnEditProfile.setOnClickListener {
+//            val intent = Intent(requireContext(), EditProfileActivity::class.java)
+//            startActivity(intent)
+//        }
 
         // 3. Logika Tombol Voucher -> VoucherActivity
         btnVoucher.setOnClickListener {
