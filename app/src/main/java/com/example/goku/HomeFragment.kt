@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
 
         cardTiket.setOnClickListener {
             pindahKeBus()
+
         }
 //        ivMenu.setOnClickListener {
 //            Toast.makeText(context, "kmau memilih laayanan motor", Toast.LENGTH_SHORT).show()
