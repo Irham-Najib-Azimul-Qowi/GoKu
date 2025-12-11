@@ -23,7 +23,6 @@ class PesanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val etSearch = view.findViewById<EditText>(R.id.search_chat)
 
 
 
