@@ -14,14 +14,27 @@ class InputJemputActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_input_jemput)
 
-        // 1. Tangkap Data dari Halaman Sebelumnya
+        // 1. Tangkap Data dari Halaman Sebelumnya (Home atau Riwayat)
         val tipeKendaraan = intent.getStringExtra("TIPE_KENDARAAN") ?: "motor"
+
+        // Data tambahan dari Riwayat (bisa null kalau dari Home)
+        val riwayatDari = intent.getStringExtra("LOKASI_DARI_RIWAYAT")
+        val riwayatKe = intent.getStringExtra("LOKASI_KE_RIWAYAT")
 
         // 2. Kenalkan Komponen
         val etDari = findViewById<EditText>(R.id.etDari)
         val etKe = findViewById<EditText>(R.id.etKe)
         val btnBatal = findViewById<AppCompatButton>(R.id.btnBatal)
         val btnKonfirmasi = findViewById<MaterialButton>(R.id.btnKonfirmasi)
+
+        // --- TAMBAHAN: ISI OTOMATIS JIKA ADA DATA RIWAYAT ---
+        if (riwayatDari != null) {
+            etDari.setText(riwayatDari)
+        }
+        if (riwayatKe != null) {
+            etKe.setText(riwayatKe)
+        }
+        // ----------------------------------------------------
 
         // 3. Logika Tampilan (Ikon Kendaraan)
         if (tipeKendaraan == "mobil") {
@@ -49,7 +62,6 @@ class InputJemputActivity : AppCompatActivity() {
                 intent.putExtra("TIPE_KENDARAAN", tipeKendaraan)
                 intent.putExtra("LOKASI_DARI", lokasiDari)
                 intent.putExtra("LOKASI_KE", lokasiKe)
-                // Kita tidak lagi mengirim LAT/LON karena sudah dihapus
                 startActivity(intent)
             }
         }
