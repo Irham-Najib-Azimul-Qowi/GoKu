@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
         val btnMasuk = findViewById<Button>(R.id.btnMasukAction)
         val btnKembali = findViewById<Button>(R.id.btnKembaliLogin)
         val tvLupaPass = findViewById<TextView>(R.id.tvLupaPassword)
+        val tvDaftarAkun = findViewById<TextView>(R.id.tvDaftarAkun)
 
         // --- Logika Tombol Kembali ---
         btnKembali.setOnClickListener {
@@ -29,6 +30,11 @@ class LoginActivity : AppCompatActivity() {
         tvLupaPass.setOnClickListener {
             // Arahkan LANGSUNG ke UbahPasswordActivity
             val intent = Intent(this, UbahPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+        tvDaftarAkun.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
