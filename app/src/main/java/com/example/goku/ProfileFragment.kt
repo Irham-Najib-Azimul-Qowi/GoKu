@@ -22,8 +22,8 @@ class ProfileFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         // 1. Dapatkan referensi ke semua tombol
-        val btnEditProfile: Button = view.findViewById(R.id.btn_edit_profile) //
-        val btnVoucher: Button = view.findViewById(R.id.btn_voucher) //
+//        val btnEditProfile: Button = view.findViewById(R.id.btn_edit_profile) //
+//        val btnVoucher: Button = view.findViewById(R.id.btn_voucher) //
         val btnLogout: Button = view.findViewById(R.id.btn_logout) //
 
         // 2. Logika Tombol Edit Profil -> EditProfileActivity
@@ -34,10 +34,10 @@ class ProfileFragment : Fragment() {
 //        }
 
         // 3. Logika Tombol Voucher -> VoucherActivity
-        btnVoucher.setOnClickListener {
-            val intent = Intent(requireContext(), VoucherActivity::class.java)
-            startActivity(intent)
-        }
+//        btnVoucher.setOnClickListener {
+//            val intent = Intent(requireContext(), VoucherActivity::class.java)
+//            startActivity(intent)
+//        }
 
         // 4. Logika Tombol Logout -> LoginActivity + Toast + clear back stack
         btnLogout.setOnClickListener {
