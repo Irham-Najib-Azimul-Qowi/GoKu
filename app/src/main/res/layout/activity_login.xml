@@ -48,11 +48,14 @@
             android:paddingEnd="20dp"/>
 
         <TextView
+            android:id="@+id/tvLupaPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lupa Password?"
             android:textColor="@color/goku_hover_blue"
             android:gravity="start"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginBottom="40dp"/>
 
         <LinearLayout
@@ -84,5 +87,6 @@
                 android:textAllCaps="false"
                 android:textStyle="bold"/>
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
