@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnKembaliVoucher"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_btn_outline"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="Kembali"
+                android:textAllCaps="false"
+                android:textColor="@color/goku_hover_blue"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="Voucher"
+                android:textColor="#00AA13"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_outline_gray"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvJudul1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Diskon Rp. 5000 ojek motor"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/btnPakai1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iconVoucher1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/voucher"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvJudul1"
+                    app:tint="#00AA13" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Berlaku hingga Nov 29, 2025"
+                    android:textColor="#00AA13"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/iconVoucher1"
+                    app:layout_constraintStart_toEndOf="@+id/iconVoucher1"
+                    app:layout_constraintTop_toTopOf="@+id/iconVoucher1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnPakai1"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/selector_btn_primary"
+                    android:text="Pakai"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_outline_gray"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvJudul2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Diskon Rp. 5000 ojek motor"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/btnPakai2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iconVoucher2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/voucher"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvJudul2"
+                    app:tint="#00AA13" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Berlaku hingga Nov 29, 2025"
+                    android:textColor="#00AA13"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/iconVoucher2"
+                    app:layout_constraintStart_toEndOf="@+id/iconVoucher2"
+                    app:layout_constraintTop_toTopOf="@+id/iconVoucher2" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnPakai2"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/selector_btn_primary"
+                    android:text="Pakai"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

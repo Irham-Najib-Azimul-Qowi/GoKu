@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sejarah"
+        android:text="Pilih Tiket"
         android:textAlignment="center"
         android:textColor="#4CAF50"
         android:textSize="20sp"
@@ -20,7 +20,6 @@
         android:paddingBottom="10dp"/>
 
     <LinearLayout
-        android:id="@+id/etSearchHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -59,7 +58,6 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/cardHistory1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/history_card_sejarah"
@@ -78,7 +76,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="23 Agu 2025, 17:09"
+                        android:text="23 Agu 2025, 14.30"
                         android:textColor="#777777"
                         android:textSize="12sp"
                         tools:ignore="HardcodedText" />
@@ -103,7 +101,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/mobil"
+                        android:src="@drawable/bus"
                         app:tint="@color/black"
                         android:layout_marginRight="10dp"
                         tools:ignore="ContentDescription" />
@@ -117,7 +115,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kampus 1 PNM → Gacoan"
+                            android:text="Madiun →  Ponorogo"
                             android:textColor="#333333"
                             android:textStyle="bold"
                             android:textSize="14sp"
@@ -129,31 +127,23 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
 
-                            <ImageView
-                                android:layout_width="10dp"
-                                android:layout_height="10dp"
-                                android:src="@drawable/sejarah"
-                                app:tint="@color/goku_primary"
-                                android:layout_marginRight="5dp"
-                                tools:ignore="ContentDescription" />
+
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Perjalanan Selesai"
+                                android:text="Restu"
                                 android:textColor="#4CAF50"
                                 android:textSize="12sp"
                                 tools:ignore="HardcodedText" />
                         </LinearLayout>
                     </LinearLayout>
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnLagi1"
-                        android:textAllCaps="false"
+                    <TextView
                         android:layout_width="55dp"
                         android:layout_height="32dp"
                         android:gravity="center"
-                        android:text="Lagi!"
+                        android:text="Beli"
                         android:textColor="#FFFFFF"
                         android:background="@drawable/button_green_sejarah"
                         android:textStyle="bold"
@@ -164,7 +154,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/cardHistory2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/history_card_sejarah"
@@ -207,7 +196,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/mobil"
+                        android:src="@drawable/bus"
                         app:tint="@color/black"
                         android:layout_marginRight="10dp"
                         tools:ignore="ContentDescription" />
@@ -221,11 +210,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kampus 1 PNM → Gacoan"
+                            android:text="Madiun → Balong"
                             android:textColor="#333333"
                             android:textStyle="bold"
                             android:textSize="14sp"
                             tools:ignore="HardcodedText"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sugeng Rahayu"
+                            android:textColor="#4CAF50"
+                            android:textSize="12sp"
+                            tools:ignore="HardcodedText" />
 
                         <LinearLayout
                             android:orientation="horizontal"
@@ -233,35 +230,19 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
 
-                            <ImageView
-                                android:layout_width="10dp"
-                                android:layout_height="10dp"
-                                android:src="@drawable/sejarah"
-                                app:tint="@color/goku_primary"
-                                android:layout_marginRight="5dp"
-                                tools:ignore="ContentDescription" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Perjalanan Selesai"
-                                android:textColor="#4CAF50"
-                                android:textSize="12sp"
-                                tools:ignore="HardcodedText" />
                         </LinearLayout>
                     </LinearLayout>
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnLagi2"
-                        android:textAllCaps="false"
+                    <TextView
                         android:layout_width="55dp"
                         android:layout_height="32dp"
-                        android:gravity="center"
-                        android:text="Lagi!"
-                        android:textColor="#FFFFFF"
                         android:background="@drawable/button_green_sejarah"
-                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:text="Beli"
+                        android:textColor="#FFFFFF"
                         android:textSize="12sp"
+                        android:textStyle="bold"
                         tools:ignore="HardcodedText" />
                 </LinearLayout>
 
