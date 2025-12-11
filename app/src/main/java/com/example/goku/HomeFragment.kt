@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
 
 
         cardTiket.setOnClickListener {
-            Toast.makeText(context, "kmau memilih laayanan motor", Toast.LENGTH_SHORT).show()
+            pindahKeBus()
 
         }
 //        ivMenu.setOnClickListener {
@@ -57,6 +57,11 @@ class HomeFragment : Fragment() {
 //        val intent = Intent(requireContext(), InputJemputActivity::class.java)
         val intent = Intent(requireContext(), InputJemputActivity::class.java)
         intent.putExtra("TIPE_KENDARAAN", jenis)
+        startActivity(intent)
+    }
+
+    private fun pindahKeBus() {
+        val intent = Intent(requireContext(), PilihTiketActivity::class.java)
         startActivity(intent)
     }
 }
