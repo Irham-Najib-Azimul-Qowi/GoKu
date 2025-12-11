@@ -29,10 +29,10 @@ class DalamPerjalananActivity : AppCompatActivity() {
         }
 
         val tipeKendaraan = intent.getStringExtra("TIPE_KENDARAAN")
-        findViewById<View>(R.id.btnChat).setOnClickListener {
-            Toast.makeText(this, "Fitur Chat belum tersedia", Toast.LENGTH_SHORT).show()
-
-        }
+//        findViewById<View>(R.id.btnChat).setOnClickListener {
+//            Toast.makeText(this, "Fitur Chat belum tersedia", Toast.LENGTH_SHORT).show()
+//
+//        }
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, SampaiTujuanActivity::class.java)
