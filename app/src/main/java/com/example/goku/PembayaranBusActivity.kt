@@ -11,10 +11,10 @@ class PembayaranBusActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pembayaran_bus)
 
         // ID btnRateKami sudah ada di XML Anda
-        val btnRate = findViewById<Button>(R.id.btnRateKami)
+        val btnBack = findViewById<Button>(R.id.btnBack)
 
-        btnRate.setOnClickListener {
-            val intent = Intent(this, ReviewBusActivity::class.java)
+        btnBack.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }

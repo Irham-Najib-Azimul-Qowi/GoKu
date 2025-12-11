@@ -27,6 +27,11 @@ class ChatActivity : AppCompatActivity() {
         val etMessage = findViewById<EditText>(R.id.etMessageInput)
         val rvChat = findViewById<RecyclerView>(R.id.rvChatHistory)
 
+        btnCall.setOnClickListener {
+            val intent = Intent(this, CallActivity::class.java)
+            startActivity(intent)
+        }
+
         // 2. Setup Data Chat Awal (Dummy)
         chatList.add(ChatModel("Halo mas, sesuai titik ya mas?", "12.00", false)) // Pesan orang
         chatList.add(ChatModel("Betul Mas", "12.00", true)) // Pesan saya

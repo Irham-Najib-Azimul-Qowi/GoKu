@@ -7,12 +7,26 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import android.widget.ImageView
 
 class DalamPerjalananActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dalam_perjalanan)
+
+        val btnChat = findViewById<ImageView>(R.id.btnChat)
+        val btnCall = findViewById<ImageView>(R.id.btnCall)
+
+        btnChat.setOnClickListener {
+            val intent = Intent(this, ChatActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnCall.setOnClickListener {
+            val intent = Intent(this, CallActivity::class.java)
+            startActivity(intent)
+        }
 
         val tipeKendaraan = intent.getStringExtra("TIPE_KENDARAAN")
         findViewById<View>(R.id.btnChat).setOnClickListener {

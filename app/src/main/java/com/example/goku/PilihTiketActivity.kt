@@ -43,6 +43,11 @@ class PilihTiketActivity : AppCompatActivity() {
         // 1. Inisialisasi RecyclerView
         val rvTiketBus = findViewById<RecyclerView>(R.id.rvTiketBus)
 
+        rvTiketBus.setOnClickListener {
+            val intent = Intent(this, PembayaranBusActivity::class.java)
+            startActivity(intent)
+        }
+
         // 2. Buat data dummy Tiket Bus
         val dataTiket = generateDummyBusTickets()
 
