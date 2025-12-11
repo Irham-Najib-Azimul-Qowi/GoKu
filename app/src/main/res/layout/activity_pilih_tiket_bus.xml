@@ -8,50 +8,46 @@
     android:background="#FFFFFF"
     tools:context=".PilihTiketActivity">
 
-    <LinearLayout
+    <!-- HEADER -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingTop="20dp"
-        android:paddingBottom="10dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="20dp"
-        tools:ignore="RtlSymmetry">
+        android:paddingTop="40dp"
+        android:paddingBottom="20dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnKembaliTiketBus"
-            android:layout_width="5dp"
+            android:layout_width="wrap_content"
             android:layout_height="34dp"
-            android:layout_marginEnd="12dp"
-            android:layout_weight="0.8"
             android:background="@drawable/bg_btn_outline_blue"
             android:text="Kembali"
             android:textAllCaps="false"
             android:textColor="#00B0FF"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
 
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/tvJudulTiket"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingEnd="40dp"
             android:text="Pilih Tiket"
-            android:textAlignment="center"
-            android:textColor="#4CAF50"
             android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:textStyle="bold"
+            android:textColor="#4CAF50"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
+    <!-- LIST TIKET -->
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTiketBus"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_tiket_bus" />
-
-
-
+        android:id="@+id/rvTiketBus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_tiket_bus" />
 
 </LinearLayout>
