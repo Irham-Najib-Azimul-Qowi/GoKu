@@ -105,6 +105,13 @@ class MapActivity : AppCompatActivity() {
                 val frag = TripFragment() // Pastikan FragmentTrip sudah dibuat
                 val bundle = Bundle()
                 bundle.putString("STATUS_TEXT", "Driver Sedang Menuju Lokasimu")
+                
+                // --- UPDATE: Kirim Text Judul Lokasi ---
+                val jemputText = markerJemput?.title ?: "Lokasi Jemput"
+                val tujuanText = markerTujuan?.title ?: "Lokasi Tujuan"
+                bundle.putString("LOKASI_A", jemputText)
+                bundle.putString("LOKASI_B", tujuanText)
+                
                 frag.arguments = bundle
                 frag
             }
@@ -173,7 +180,7 @@ class MapActivity : AppCompatActivity() {
 
                 // Buat garis baru
                 routeOverlay = RoadManager.buildRoadOverlay(road)
-                routeOverlay?.outlinePaint?.color = Color.BLUE
+                routeOverlay?.outlinePaint?.color = Color.parseColor("#00C853")
                 routeOverlay?.outlinePaint?.strokeWidth = 15f
 
                 mapView.overlays.add(routeOverlay)
@@ -183,6 +190,158 @@ class MapActivity : AppCompatActivity() {
                 mapView.zoomToBoundingBox(road.mBoundingBox, true, 100)
             }
         }
+    }
+
+    // Variabel Simulasi Motor
+    private var markerMotor: Marker? = null
+    private var driverRouteOverlay: Polyline? = null // Line khusus buat driver jemput
+
+    // Helper untuk membuat marker motor jika belum ada
+    private fun ensureMotorKey() {
+        if (markerMotor == null) {
+            markerMotor = Marker(mapView)
+            markerMotor?.icon = androidx.core.content.ContextCompat.getDrawable(this, R.drawable.motor_otw)
+            markerMotor?.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
+            markerMotor?.title = "Driver GoKu"
+            mapView.overlays.add(markerMotor)
+        }
+    }
+
+    // --- FUNGSI 4: SIMULASI GRAB LIKE (Menjemput dengan Rute) ---
+    fun startSimulationJemput(onArrived: () -> Unit) {
+        val jemput = markerJemput?.position ?: GeoPoint(-7.6298, 111.5239)
+        // Driver start dari lokasi agak jauh (misal 1 km)
+        val startDriver = GeoPoint(jemput.latitude + 0.008, jemput.longitude + 0.008)
+
+        ensureMotorKey()
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            // 1. Cari jalan buat Driver -> Jemput
+            val roadManager = OSRMRoadManager(this@MapActivity, "GoKuApp/1.0")
+            val waypoints = ArrayList<GeoPoint>()
+            waypoints.add(startDriver)
+            waypoints.add(jemput)
+            
+            val road = roadManager.getRoad(waypoints)
+            val nodes = road.mNodes
+
+            withContext(Dispatchers.Main) {
+                // 2. Gambar Garis Rute Driver
+                if (driverRouteOverlay != null) mapView.overlays.remove(driverRouteOverlay)
+                
+                driverRouteOverlay = RoadManager.buildRoadOverlay(road)
+                driverRouteOverlay?.outlinePaint?.color = Color.parseColor("#4FC3F7") // Biru muda
+                driverRouteOverlay?.outlinePaint?.strokeWidth = 10f
+                mapView.overlays.add(driverRouteOverlay)
+                mapView.invalidate()
+
+                // 3. Animasi ikuti jalan (12 detik biar lebih real)
+                animateAlongTrack(nodes, 12000L) {
+                    // Hapus garis driver kalau sudah sampai (opsional)
+                    if (driverRouteOverlay != null) {
+                        mapView.overlays.remove(driverRouteOverlay)
+                        mapView.invalidate()
+                    }
+                    onArrived()
+                }
+            }
+        }
+    }
+
+    // --- FUNGSI 5: SIMULASI GRAB LIKE (Mengantar sesuai Rute Utama) ---
+    private var mainRoadNodes: ArrayList<GeoPoint>? = null
+
+    fun startSimulationAntar(onArrived: () -> Unit) {
+        val jemput = markerJemput?.position ?: return
+        val tujuan = markerTujuan?.position ?: return
+
+        ensureMotorKey()
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            // Ambil rute ulang atau pakai yang sudah ada jika tersimpan
+            // Kita request ulang biar aman dan dapat nodes-nya
+            val roadManager = OSRMRoadManager(this@MapActivity, "GoKuApp/1.0")
+            val waypoints = ArrayList<GeoPoint>()
+            waypoints.add(jemput)
+            waypoints.add(tujuan)
+
+            val road = roadManager.getRoad(waypoints)
+            val nodes = road.mNodes
+
+            withContext(Dispatchers.Main) {
+                 // Pastikan garis rute utama (biru) ada
+                 if (routeOverlay == null) {
+                     routeOverlay = RoadManager.buildRoadOverlay(road)
+                     routeOverlay?.outlinePaint?.color = Color.parseColor("#00C853") // Hijau GoKu
+                     routeOverlay?.outlinePaint?.strokeWidth = 15f
+                     mapView.overlays.add(routeOverlay)
+                 }
+
+                 // Animasi (15 detik biar lebih real)
+                 animateAlongTrack(nodes, 15000L) {
+                     onArrived()
+                 }
+            }
+        }
+    }
+
+    // Fungsi Animasi mengikuti titik-titik jalan (Nodes)
+    private fun animateAlongTrack(nodes: List<org.osmdroid.bonuspack.routing.RoadNode>, duration: Long, onFinish: () -> Unit) {
+        if (nodes.isEmpty()) {
+            onFinish()
+            return
+        }
+
+        // Konversi RoadNode ke GeoPoint biasa biar ringan
+        val points = nodes.map { it.mLocation }
+        val totalPoints = points.size
+        
+        // Kita jalan frame by frame.
+        // Total waktu = duration.
+        // Pergerakan: kita interpolasi index.
+        
+        val handler = android.os.Handler(android.os.Looper.getMainLooper())
+        val startTime = System.currentTimeMillis()
+
+        val runnable = object : Runnable {
+            override fun run() {
+                val elapsed = System.currentTimeMillis() - startTime
+                val t = elapsed.toFloat() / duration
+
+                if (t >= 1.0f) {
+                    markerMotor?.position = points.last()
+                    markerMotor?.rotation = 0f
+                    mapView.invalidate()
+                    onFinish()
+                    return
+                }
+
+                // Hitung posisi saat ini di index mana
+                // Panjang array = totalPoints
+                // Index virtual = t * (totalPoints - 1)
+                val indexFloat = t * (totalPoints - 1)
+                val indexInt = indexFloat.toInt()
+                val fraction = indexFloat - indexInt
+
+                if (indexInt < totalPoints - 1) {
+                    val p1 = points[indexInt]
+                    val p2 = points[indexInt + 1]
+
+                    val lat = p1.latitude + (p2.latitude - p1.latitude) * fraction
+                    val lon = p1.longitude + (p2.longitude - p1.longitude) * fraction
+                    
+                    markerMotor?.position = GeoPoint(lat, lon)
+                    
+                    // Hitung Rotasi biar motor menghadap jalan
+                    val bearing = p1.bearingTo(p2).toFloat()
+                    markerMotor?.rotation = -bearing // OSMDroid rotasi kadang perlu minus atau setup anchor
+                    
+                    mapView.invalidate()
+                    handler.postDelayed(this, 16)
+                }
+            }
+        }
+        handler.post(runnable)
     }
 
     // Lifecycle
