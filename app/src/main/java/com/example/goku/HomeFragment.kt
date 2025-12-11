@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
 
     private fun pindahKeInputJemput(jenis: String) {
 //        val intent = Intent(requireContext(), InputJemputActivity::class.java)
-        val intent = Intent(requireContext(), MapActivity::class.java)
+        val intent = Intent(requireContext(), InputJemputActivity::class.java)
         intent.putExtra("TIPE_KENDARAAN", jenis)
         startActivity(intent)
     }

@@ -6,12 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <org.osmdroid.views.MapView
-        android:id="@+id/mapView"
+    <ImageView
+        android:id="@+id/ivMapBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:layerType="software" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/map"
+        android:contentDescription="Map Background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -29,7 +34,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/etDari"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
@@ -41,43 +46,36 @@
                 android:textSize="14sp"
                 android:inputType="text"
                 android:maxLines="1"
-                android:completionThreshold="3"
-                android:popupBackground="@color/white"                android:dropDownHeight="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="Autofill,HardcodedText, TouchTargetSizeCheck"
-                />
+                tools:ignore="Autofill,HardcodedText, TouchTargetSizeCheck" />
 
-                <ImageView
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/map"
+                android:contentDescription="Ikon Lokasi"
+                android:layout_marginEnd="16dp"
+                app:tint="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/etDari"
+                app:layout_constraintTop_toTopOf="@+id/etDari"
+                app:layout_constraintBottom_toBottomOf="@+id/etDari" />
 
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/input_jemput"
-                    android:contentDescription="Ikon Lokasi"
-                    android:layout_marginEnd="16dp"
-                    app:tint="@color/black"
-                    app:layout_constraintEnd_toEndOf="@+id/etDari"
-                    app:layout_constraintTop_toTopOf="@+id/etDari"
-                    app:layout_constraintBottom_toBottomOf="@+id/etDari"
-                    />
+            <EditText
+                android:id="@+id/etKe"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/selector_input_field"
+                android:hint="Mau ke mana?"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:maxLines="1"
+                app:layout_constraintTop_toBottomOf="@+id/etDari"
+                tools:ignore="Autofill,HardcodedText, TouchTargetSizeCheck" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/etKe"
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/selector_input_field"
-                    android:hint="Mau ke mana?"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:completionThreshold="3"
-                    android:popupBackground="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/etDari"
-                    tools:ignore="Autofill,HardcodedText, TouchTargetSizeCheck"
-                    />
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnBatal"
                 android:layout_width="0dp"
