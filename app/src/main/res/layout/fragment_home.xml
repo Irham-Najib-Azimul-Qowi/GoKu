@@ -13,12 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/bg_card_home_content"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.73"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineCenter"
@@ -27,6 +25,23 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
+    <ImageView
+        android:id="@+id/ivLogoHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="Ilustrasi Home"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo_home"
+
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/cardMotor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
     <androidx.cardview.widget.CardView
         android:id="@+id/cardMotor"
         android:layout_width="140dp"
