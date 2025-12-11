@@ -25,8 +25,8 @@ class HomeFragment : Fragment() {
         val cardMotor = view.findViewById<CardView>(R.id.cardMotor)
         val cardMobil = view.findViewById<CardView>(R.id.cardMobil)
         val cardTiket = view.findViewById<CardView>(R.id.cardTiket)
-        val ivMenu = view.findViewById<ImageView>(R.id.ivMenu)
-        val etSearch = view.findViewById<EditText>(R.id.etSearch)
+//        val ivMenu = view.findViewById<ImageView>(R.id.ivMenu)
+//        val etSearch = view.findViewById<EditText>(R.id.etSearch)
 
         cardMotor.setOnClickListener {
             pindahKeInputJemput("motor")
@@ -41,20 +41,21 @@ class HomeFragment : Fragment() {
             Toast.makeText(context, "kmau memilih laayanan motor", Toast.LENGTH_SHORT).show()
 
         }
-        ivMenu.setOnClickListener {
-            Toast.makeText(context, "kmau memilih laayanan motor", Toast.LENGTH_SHORT).show()
-
-        }
-        etSearch.setOnClickListener {
-            Toast.makeText(context, "kmau memilih laayanan motor", Toast.LENGTH_SHORT).show()
-
-        }
+//        ivMenu.setOnClickListener {
+//            Toast.makeText(context, "kmau memilih laayanan motor", Toast.LENGTH_SHORT).show()
+//
+//        }
+//        etSearch.setOnClickListener {
+//            Toast.makeText(context, "kmau memilih laayanan motor", Toast.LENGTH_SHORT).show()
+//
+//        }
 
 
     }
 
     private fun pindahKeInputJemput(jenis: String) {
-        val intent = Intent(requireContext(), InputJemputActivity::class.java)
+//        val intent = Intent(requireContext(), InputJemputActivity::class.java)
+        val intent = Intent(requireContext(), MapActivity::class.java)
         intent.putExtra("TIPE_KENDARAAN", jenis)
         startActivity(intent)
     }

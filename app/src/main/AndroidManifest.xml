@@ -2,52 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-    <activity
-        android:name=".WelcomeScreen"
-        android:exported="false" />
-    <activity
-        android:name=".RegisterActivity"
-        android:exported="false" />
-    <activity
-        android:name=".CallActivity"
-        android:exported="false" />
-    <activity
-        android:name=".MenuActivity"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-    <activity
-        android:name=".MainActivity"
-        android:exported="false" />
-    <activity
-        android:name=".InputJemputActivity"
-        android:exported="false" />
-    <activity
-        android:name=".KonfirmasiJemputActivity"
-        android:exported="false" />
-    <activity
-        android:name=".MencariDriverActivity"
-        android:exported="false" />
-    <activity
-        android:name=".DriverMenujuActivity"
-        android:exported="false" />
-    <activity
-        android:name=".DalamPerjalananActivity"
-        android:exported="false" />
-    <activity
-        android:name=".SampaiTujuanActivity"
-        android:exported="false" />
-    <activity
-        android:name=".ScanQrisActivity"
-        android:exported="false" />
-    <activity
-        android:name=".SelesaiActivity"
-        android:exported="false" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -59,27 +17,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoKu">
         <activity
-            android:name=".ReviewBusActivity"
+            android:name=".MenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MapActivity"
             android:exported="false" />
         <activity
-            android:name=".PembayaranBusActivity"
+            android:name=".InputJemputActivity"
             android:exported="false" />
         <activity
-            android:name=".TiketBusActivity"
+            android:name=".KonfirmasiJemputActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".MencariDriverActivity"
             android:exported="false" />
         <activity
-            android:name=".UbahPasswordActivity"
+            android:name=".DriverMenujuActivity"
             android:exported="false" />
         <activity
-            android:name=".PilihTiketActivity"
+            android:name=".DalamPerjalananActivity"
             android:exported="false" />
         <activity
-            android:name=".LupaPasswordActivity"
+            android:name=".SampaiTujuanActivity"
             android:exported="false" />
-       =
+        <activity
+            android:name=".ScanQrisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelesaiActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

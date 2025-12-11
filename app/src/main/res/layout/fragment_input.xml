@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="12dp"
+    app:cardBackgroundColor="#D6D6D6">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/etDari"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_btn_outline_green"
+            android:hint="Dari"
+            android:textColorHint="#00C853"
+            android:paddingStart="24dp"
+            android:paddingEnd="48dp"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:completionThreshold="3"
+            android:layout_marginBottom="12dp"
+            android:drawableEnd="@drawable/input_jemput"
+            android:drawablePadding="12dp"/>
+        <AutoCompleteTextView
+            android:id="@+id/etKe"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_btn_outline_green"
+            android:hint="Ke"
+            android:textColorHint="#888888"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:completionThreshold="3"
+            android:layout_marginBottom="24dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBatal"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="0.8"
+                android:text="Batal"
+                android:textColor="#00B0FF"
+                android:background="@drawable/bg_btn_outline_blue"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:layout_marginEnd="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnKonfirmasi"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1.2"
+                android:text="konfirmasi"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00C853"
+                app:cornerRadius="25dp"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                app:icon="@drawable/motor"
+                app:iconGravity="textEnd"
+                app:iconTint="#FFFFFF"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
