@@ -19,49 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivMenu"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/filter"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        app:tint="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="Menu Filter" />
-
-    <EditText
-        android:id="@+id/etSearch"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/bg_search_rounded"
-        android:hint="Cari layanan..."
-        android:paddingStart="20dp"
-        android:paddingEnd="16dp"
-        android:textSize="14sp"
-        android:inputType="text"
-        android:maxLines="1"
-
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-
-        app:layout_constraintStart_toEndOf="@id/ivMenu"
-        app:layout_constraintEnd_toStartOf="@id/ivSearch"
-        app:layout_constraintTop_toTopOf="@id/ivMenu"
-        app:layout_constraintBottom_toBottomOf="@id/ivMenu"
-        tools:ignore="Autofill,HardcodedText" />
-
-    <ImageView
-        android:id="@+id/ivSearch"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/cari"
-        android:contentDescription="Ikon Pencarian"
-        android:layout_marginEnd="24dp"
-        app:tint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ivMenu" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineCenter"
