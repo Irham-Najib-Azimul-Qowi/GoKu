@@ -17,9 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoKu">
         <activity
-            android:name=".MapActivity"
-            android:exported="false" />
-        <activity
             android:name=".MenuActivity"
             android:exported="true">
             <intent-filter>
@@ -29,8 +26,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:name=".MapActivity"
+            android:exported="false" />
         <activity
             android:name=".InputJemputActivity"
             android:exported="false" />
@@ -55,6 +52,7 @@
         <activity
             android:name=".SelesaiActivity"
             android:exported="false" />
+
     </application>
 
 </manifest>
