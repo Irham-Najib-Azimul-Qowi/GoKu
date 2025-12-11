@@ -1,5 +1,7 @@
 package com.example.goku
 
+import android.annotation.SuppressLint
+import android.content.Intent // Tambahkan import Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,12 +9,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.AppCompatButton // Tambahkan import untuk AppCompatButton
 
 // Impor model dan adapter dari paket yang sudah Anda buat
 import com.example.goku.model.TiketBus
 import com.example.goku.adapter.TiketBusAdapter
 
 class PilihTiketActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,6 +27,17 @@ class PilihTiketActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        // Logika Tombol Kembali (Sesuai dengan ID: btnKembaliTiketBus dari XML)
+        val btnBack: AppCompatButton = findViewById(R.id.btnKembaliTiketBus)
+        btnBack.setOnClickListener {
+            // Logika untuk kembali ke MenuActivity (Beranda)
+            val intent = Intent(this, MenuActivity::class.java)
+            // Bendera untuk mengosongkan tumpukan aktivitas di atas MenuActivity
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish() // Tutup PilihTiketActivity
         }
 
         // 1. Inisialisasi RecyclerView

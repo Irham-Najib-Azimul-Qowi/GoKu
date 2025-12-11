@@ -6,48 +6,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    tools:context=".SejarahFragment">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pilih Tiket"
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:paddingTop="20dp"
-        android:paddingBottom="10dp"/>
+    tools:context=".PilihTiketActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="20dp"
+        tools:ignore="RtlSymmetry">
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnKembaliTiketBus"
+            android:layout_width="5dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="0.8"
+            android:background="@drawable/bg_btn_outline_blue"
+            android:text="Kembali"
+            android:textAllCaps="false"
+            android:textColor="#00B0FF"
+            android:textStyle="bold" />
+
+        <TextView
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_height="40dp"
-            android:background="@drawable/search_background_sejarah"
-            android:hint="Cari"
-            android:paddingLeft="16dp"
-            android:textColor="#333"
-            android:textColorHint="#AAAAAA"
-            android:layout_marginRight="10dp"
-            tools:ignore="RtlSymmetry,HardcodedText"/>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/cari"
-            app:tint="@color/goku_primary"
-            tools:ignore="ContentDescription" />
+            android:paddingEnd="40dp"
+            android:text="Pilih Tiket"
+            android:textAlignment="center"
+            android:textColor="#4CAF50"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
-
-
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTiketBus"
@@ -56,6 +50,8 @@
             android:padding="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_tiket_bus" />
+
+
 
 
 </LinearLayout>
