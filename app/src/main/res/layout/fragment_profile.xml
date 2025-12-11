@@ -64,26 +64,6 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_edit_profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Edit Profil"
-            android:backgroundTint="#4CAF50"
-            android:textColor="#FFFFFF"
-            android:elevation="4dp"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btn_voucher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Voucher"
-            android:backgroundTint="#D9D9D9"
-            android:textColor="#4CAF50"
-            android:elevation="4dp"
-            android:layout_marginBottom="16dp" />
-
-        <Button
             android:id="@+id/btn_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
