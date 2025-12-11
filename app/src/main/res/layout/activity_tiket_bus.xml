@@ -104,8 +104,7 @@
                 android:paddingEnd="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/goku_card_gray"
-                android:inputType="none"
-                android:focusable="false"
+                android:inputType="text"
                 android:clickable="true"
                 android:drawableStart="@drawable/calendar"
                 android:drawablePadding="10dp"
@@ -135,19 +134,15 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="20dp">
 
-
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCariTiket"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:text="Cari Tiket"
                     android:textColor="@color/white"
                     android:background="@drawable/selector_btn_primary"
                     app:backgroundTint="@null"
                     app:cornerRadius="25dp"
-                    android:layout_marginStart="8dp"
                     android:textAllCaps="false"
                     android:textStyle="bold"
                     app:icon="@drawable/bus"
