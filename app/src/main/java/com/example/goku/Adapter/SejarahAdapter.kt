@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goku.InputJemputActivity
+import com.example.goku.PilihTiketActivity // Pastikan Import ini ada
 import com.example.goku.R
-import com.example.goku.TiketBusActivity
 import com.example.goku.model.Transaksi
 
 class SejarahAdapter(val listTransaksi: List<Transaksi>) :
@@ -42,13 +42,15 @@ class SejarahAdapter(val listTransaksi: List<Transaksi>) :
             var lokasiKe = if (lokasi.size >= 2) lokasi[1] else ""
 
             // 2. Cek Jenis Layanan (Apakah Bus atau Ojek?)
-            // Sesuaikan R.drawable.bus dengan nama file ikon bus kamu (misal: tiket_bus atau bus)
             if (transaksi.jenisLayananIconResId == R.drawable.bus || transaksi.jenisLayananIconResId == R.drawable.tiket_bus) {
 
-                // === KASUS BUS ===
-                val intent = Intent(context, TiketBusActivity::class.java)
+                // === KASUS BUS (DIUBAH KE PILIH TIKET) ===
+                val intent = Intent(context, PilihTiketActivity::class.java)
+
+                // Kita tetap kirim datanya, barangkali nanti PilihTiketActivity butuh buat filter
                 intent.putExtra("LOKASI_DARI_RIWAYAT", lokasiDari)
                 intent.putExtra("LOKASI_KE_RIWAYAT", lokasiKe)
+
                 context.startActivity(intent)
 
             } else {
