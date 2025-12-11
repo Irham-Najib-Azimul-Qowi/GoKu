@@ -33,7 +33,7 @@ class PilihTiketActivity : AppCompatActivity() {
         val btnBack: AppCompatButton = findViewById(R.id.btnKembaliTiketBus)
         btnBack.setOnClickListener {
             // Logika untuk kembali ke MenuActivity (Beranda)
-            val intent = Intent(this, MenuActivity::class.java)
+            val intent = Intent(this, TiketBusActivity::class.java)
             // Bendera untuk mengosongkan tumpukan aktivitas di atas MenuActivity
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)

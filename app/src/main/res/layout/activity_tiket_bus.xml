@@ -8,16 +8,18 @@
     android:background="@color/white"
     tools:context=".TiketBusActivity">
 
+    <!-- TOP GREEN BACKGROUND -->
     <View
         android:id="@+id/viewGreenBackground"
-        android:layout_width="421dp"
-        android:layout_height="518dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/bg_top_curved_green"
-        app:layout_constraintHeight_percent="0.4"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-10dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.65"/>
 
+    <!-- BUTTON KEMBALI -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnKembali"
         android:layout_width="wrap_content"
@@ -29,12 +31,14 @@
         android:textStyle="bold"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
+    <!-- JUDUL -->
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tiket Bus"
@@ -44,17 +48,21 @@
         android:layout_marginEnd="24dp"
         app:layout_constraintTop_toTopOf="@id/btnKembali"
         app:layout_constraintBottom_toBottomOf="@id/btnKembali"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- CARD FORM -->
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:id="@+id/cardForm"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
         app:cardBackgroundColor="#E0E0E0"
         app:cardCornerRadius="24dp"
         app:cardElevation="10dp"
         app:layout_constraintTop_toBottomOf="@id/btnKembali"
-        android:layout_marginTop="32dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,10 +80,8 @@
                 android:paddingEnd="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/goku_card_gray"
-                android:inputType="text"
                 android:drawableStart="@drawable/pinmap"
-                android:drawablePadding="10dp"
-                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
+                android:drawablePadding="10dp"/>
 
             <EditText
                 android:id="@+id/etTujuan"
@@ -88,10 +94,8 @@
                 android:paddingEnd="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/goku_card_gray"
-                android:inputType="text"
                 android:drawableStart="@drawable/pinmap"
-                android:drawablePadding="10dp"
-                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
+                android:drawablePadding="10dp"/>
 
             <EditText
                 android:id="@+id/etTanggalBerangkat"
@@ -108,9 +112,7 @@
                 android:focusable="false"
                 android:clickable="true"
                 android:drawableStart="@drawable/calendar"
-                android:drawablePadding="10dp"
-                app:drawableTint="@color/goku_card_gray"
-                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
+                android:drawablePadding="10dp"/>
 
             <EditText
                 android:id="@+id/etJumlahKursi"
@@ -125,9 +127,7 @@
                 android:textColorHint="@color/goku_card_gray"
                 android:inputType="number"
                 android:drawableStart="@drawable/chair"
-                android:drawablePadding="10dp"
-                app:drawableTint="@color/goku_card_gray"
-                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
+                android:drawablePadding="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
