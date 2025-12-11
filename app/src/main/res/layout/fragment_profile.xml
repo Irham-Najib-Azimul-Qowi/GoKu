@@ -63,7 +63,6 @@
         android:padding="22dp"
         android:orientation="vertical">
 
-
         <Button
             android:id="@+id/btn_logout"
             android:layout_width="match_parent"

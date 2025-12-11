@@ -61,7 +61,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun pindahKeBus() {
-        val intent = Intent(requireContext(), PilihTiketActivity::class.java)
+        val intent = Intent(requireContext(), TiketBusActivity::class.java)
         startActivity(intent)
     }
 }

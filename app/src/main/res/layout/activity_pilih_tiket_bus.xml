@@ -6,56 +6,49 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    tools:context=".SejarahFragment">
+    tools:context=".PilihTiketActivity">
 
-    <TextView
+    <!-- HEADER -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pilih Tiket"
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_marginTop="40dp"
         android:paddingTop="20dp"
-        android:paddingBottom="10dp"/>
+        android:paddingBottom="20dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:gravity="center_vertical">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnKembaliTiketBus"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_btn_outline_blue"
+            android:text="Kembali"
+            android:textAllCaps="false"
+            android:textColor="#00B0FF"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="40dp"
-            android:background="@drawable/search_background_sejarah"
-            android:hint="Cari"
-            android:paddingLeft="16dp"
-            android:textColor="#333"
-            android:textColorHint="#AAAAAA"
-            android:layout_marginRight="10dp"
-            tools:ignore="RtlSymmetry,HardcodedText"/>
+        <TextView
+            android:id="@+id/tvJudulTiket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih Tiket"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#4CAF50"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/cari"
-            app:tint="@color/goku_primary"
-            tools:ignore="ContentDescription" />
-    </LinearLayout>
-
-
-
+    <!-- LIST TIKET -->
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTiketBus"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_tiket_bus" />
-
+        android:id="@+id/rvTiketBus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_tiket_bus" />
 
 </LinearLayout>
