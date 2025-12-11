@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardTiketBus"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/history_card_sejarah"
+    android:elevation="5dp"
+    android:padding="12dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvTanggalWaktuBus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="23 Agu 2025, 14.30"
+            android:textColor="#777777"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tvHargaBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp 15.000"
+            android:textColor="#4CAF50"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="6dp">
+
+        <ImageView
+            android:id="@+id/ivBusIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/bus"
+            app:tint="@color/black"
+            android:layout_marginRight="10dp"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvRuteBus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Madiun →  Ponorogo"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText"/>
+
+            <TextView
+                android:id="@+id/tvOperatorBus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restu"
+                android:textColor="#4CAF50"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnBeliTiket"
+            android:layout_width="55dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="Beli"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_green_sejarah"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</LinearLayout>
