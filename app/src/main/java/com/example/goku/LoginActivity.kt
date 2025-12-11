@@ -22,33 +22,28 @@ class LoginActivity : AppCompatActivity() {
 
         // --- Logika Tombol Kembali ---
         btnKembali.setOnClickListener {
-            finish() // Menutup activity login, kembali ke halaman sebelumnya (Welcome)
+            finish() // Kembali ke WelcomeScreen
         }
 
-        // --- Logika Tombol Lupa Password ---
+        // --- LOGIKA LUPA PASSWORD (INI YANG DIUBAH) ---
         tvLupaPass.setOnClickListener {
-            // Pastikan kamu punya LupaPasswordActivity
-            val intent = Intent(this, LupaPasswordActivity::class.java)
+            // Arahkan LANGSUNG ke UbahPasswordActivity
+            val intent = Intent(this, UbahPasswordActivity::class.java)
             startActivity(intent)
         }
 
-        // --- LOGIKA TOMBOL MASUK (PENTING!) ---
+        // --- Logika Tombol Masuk ---
         btnMasuk.setOnClickListener {
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
 
-            // 1. Validasi Sederhana: Cek apakah kolom kosong
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Mohon isi Email dan Password!", Toast.LENGTH_SHORT).show()
             } else {
-                // 2. Jika isi ada (Login Berhasil), Pindah ke MenuActivity
                 Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, MenuActivity::class.java)
                 startActivity(intent)
-
-                // 3. PENTING: Pakai finish() agar saat di Menu user tekan Back,
-                // tidak balik ke halaman Login lagi (langsung keluar app)
                 finish()
             }
         }
