@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goku.InputJemputActivity
 import com.example.goku.R
+import com.example.goku.TiketBusActivity
 import com.example.goku.model.Transaksi
 
 class SejarahAdapter(val listTransaksi: List<Transaksi>) :
@@ -31,46 +32,41 @@ class SejarahAdapter(val listTransaksi: List<Transaksi>) :
         holder.tvStatus.text = transaksi.status
         holder.ivLayananIcon.setImageResource(transaksi.jenisLayananIconResId)
 
-        // --- LOGIKA TOMBOL "LAGI!" (INI YANG PENTING) ---
+        // --- LOGIKA TOMBOL "LAGI!" ---
         holder.btnPesanLagi.setOnClickListener {
             val context = holder.view.context
 
-            // 1. Pecah String Rute (misal: "Kampus 1 PNM → Gacoan")
-            // Kita pisahkan teksnya berdasarkan tanda panah " → "
+            // 1. Pecah String Rute ("Asal → Tujuan")
             val lokasi = transaksi.rute.split(" → ")
+            var lokasiDari = if (lokasi.size >= 2) lokasi[0] else transaksi.rute
+            var lokasiKe = if (lokasi.size >= 2) lokasi[1] else ""
 
-            var lokasiDari = ""
-            var lokasiKe = ""
+            // 2. Cek Jenis Layanan (Apakah Bus atau Ojek?)
+            // Sesuaikan R.drawable.bus dengan nama file ikon bus kamu (misal: tiket_bus atau bus)
+            if (transaksi.jenisLayananIconResId == R.drawable.bus || transaksi.jenisLayananIconResId == R.drawable.tiket_bus) {
 
-            if (lokasi.size >= 2) {
-                lokasiDari = lokasi[0] // Ambil bagian kiri
-                lokasiKe = lokasi[1]   // Ambil bagian kanan
+                // === KASUS BUS ===
+                val intent = Intent(context, TiketBusActivity::class.java)
+                intent.putExtra("LOKASI_DARI_RIWAYAT", lokasiDari)
+                intent.putExtra("LOKASI_KE_RIWAYAT", lokasiKe)
+                context.startActivity(intent)
+
             } else {
-                lokasiDari = transaksi.rute // Jaga-jaga kalau format beda
+
+                // === KASUS OJEK (MOTOR/MOBIL) ===
+                val tipeKendaraan = if (transaksi.jenisLayananIconResId == R.drawable.mobil) "mobil" else "motor"
+
+                val intent = Intent(context, InputJemputActivity::class.java)
+                intent.putExtra("TIPE_KENDARAAN", tipeKendaraan)
+                intent.putExtra("LOKASI_DARI_RIWAYAT", lokasiDari)
+                intent.putExtra("LOKASI_KE_RIWAYAT", lokasiKe)
+                context.startActivity(intent)
             }
-
-            // 2. Cek Tipe Kendaraan (Mobil/Motor) berdasarkan Icon
-            val tipeKendaraan = if (transaksi.jenisLayananIconResId == R.drawable.mobil) {
-                "mobil"
-            } else {
-                "motor"
-            }
-
-            // 3. Pindah ke InputJemputActivity bawa data
-            val intent = Intent(context, InputJemputActivity::class.java)
-
-            // Kirim data agar kolom terisi otomatis
-            intent.putExtra("TIPE_KENDARAAN", tipeKendaraan)
-            intent.putExtra("LOKASI_DARI_RIWAYAT", lokasiDari)
-            intent.putExtra("LOKASI_KE_RIWAYAT", lokasiKe)
-
-            context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int = listTransaksi.size
 
-    // Inner class ViewHolder (Sesuai ID punya kamu)
     class SejarahViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val tvTanggalWaktu: TextView = view.findViewById(R.id.tvTanggalWaktu)
         val tvHarga: TextView = view.findViewById(R.id.tvHarga)
