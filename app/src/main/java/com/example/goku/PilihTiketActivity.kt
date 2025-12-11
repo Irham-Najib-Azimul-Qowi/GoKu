@@ -23,11 +23,11 @@ class PilihTiketActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pilih_tiket_bus)
 
         // Atur padding untuk system bars
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            insets
+//        }
 
         // Logika Tombol Kembali (Sesuai dengan ID: btnKembaliTiketBus dari XML)
         val btnBack: AppCompatButton = findViewById(R.id.btnKembaliTiketBus)
