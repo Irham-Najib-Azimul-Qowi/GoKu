@@ -147,18 +147,3 @@ class MenuActivity : AppCompatActivity() {
             .commit()
     }
 }
-
-class PembayaranBusActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pembayaran_bus)
-
-        // ID btnRateKami sudah ada di XML Anda
-        val btnBack = findViewById<Button>(R.id.btnBack)
-
-        btnBack.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        }
-    }
-}
