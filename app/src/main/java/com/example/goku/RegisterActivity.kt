@@ -18,11 +18,7 @@ class RegisterActivity : AppCompatActivity() {
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPass = findViewById<EditText>(R.id.etPassword)
         val btnDaftar = findViewById<Button>(R.id.btnDaftarAction)
-        val btnKembali = findViewById<Button>(R.id.btnKembali)
         val tvLogin = findViewById<TextView>(R.id.tvLoginLink)
-
-        // 2. Tombol Kembali
-        btnKembali.setOnClickListener { finish() }
 
         // 3. Link "Sudah Punya Akun"
         tvLogin.setOnClickListener {

@@ -17,14 +17,10 @@ class LoginActivity : AppCompatActivity() {
         val etEmail = findViewById<EditText>(R.id.etEmailLogin)
         val etPassword = findViewById<EditText>(R.id.etPassLogin)
         val btnMasuk = findViewById<Button>(R.id.btnMasukAction)
-        val btnKembali = findViewById<Button>(R.id.btnKembaliLogin)
         val tvLupaPass = findViewById<TextView>(R.id.tvLupaPassword)
         val tvDaftarAkun = findViewById<TextView>(R.id.tvDaftarAkun)
 
-        // --- Logika Tombol Kembali ---
-        btnKembali.setOnClickListener {
-            finish() // Kembali ke WelcomeScreen
-        }
+
 
         // --- LOGIKA LUPA PASSWORD (INI YANG DIUBAH) ---
         tvLupaPass.setOnClickListener {

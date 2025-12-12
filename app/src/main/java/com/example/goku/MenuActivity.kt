@@ -1,7 +1,9 @@
 package com.example.goku
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -124,5 +126,20 @@ class MenuActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragmet)
             .commit()
+    }
+}
+
+class PembayaranBusActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_pembayaran_bus)
+
+        // ID btnRateKami sudah ada di XML Anda
+        val btnBack = findViewById<Button>(R.id.btnBack)
+
+        btnBack.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

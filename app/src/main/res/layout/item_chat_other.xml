@@ -10,7 +10,7 @@
         android:id="@+id/tvMessageOther"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/goku_card_gray"
+        android:background="@drawable/bg_banner_gray"
         android:padding="12dp"
         android:maxWidth="250dp"
         android:text="Pesan Orang"

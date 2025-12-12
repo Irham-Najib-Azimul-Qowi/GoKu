@@ -44,22 +44,5 @@
         app:layout_constraintTop_toBottomOf="@id/cardQrContainer"
         tools:ignore="HardcodedText" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnRateDriver"
-        android:layout_width="match_parent"
-        android:layout_height="37dp"
-        android:layout_margin="24dp"
-        android:background="@drawable/selector_btn_white"
-        app:backgroundTint="@null"
-        android:text="Nilai Driver Kami"
-        android:textColor="@color/goku_primary"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        app:cornerRadius="19dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
