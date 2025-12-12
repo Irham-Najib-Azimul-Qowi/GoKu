@@ -13,16 +13,13 @@ import com.example.goku.PilihTiketActivity // Pastikan Import ini ada
 import com.example.goku.R
 import com.example.goku.model.Transaksi
 
-/**
- * Adapter untuk RecyclerView Riwayat Transaksi.
- * Menghubungkan data List<Transaksi> ke layout item_sejarah.xml.
- */
+// Adapter untuk menampilkan daftar riwayat transaksi (Sejarah) dalam RecyclerView.
 class SejarahAdapter(val listTransaksi: List<Transaksi>) :
     RecyclerView.Adapter<SejarahAdapter.SejarahViewHolder>() {
 
     /**
-     * Membuat ViewHolder baru.
-     * Meng-inflate layout XML item list (item_sejarah.xml).
+     * Metode ini dipanggil untuk membuat ViewHolder baru.
+     * Meng-inflate layout item_sejarah.xml.
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SejarahViewHolder {
         val layout: View = LayoutInflater.from(parent.context)
@@ -31,60 +28,64 @@ class SejarahAdapter(val listTransaksi: List<Transaksi>) :
     }
 
     /**
-     * Menghubungkan data ke View pada posisi tertentu.
-     * Mengatur teks, gambar, dan logika klik tombol "Pesan Lagi".
+     * Metode ini dipanggil untuk mengikat data ke ViewHolder pada posisi tertentu.
      */
     override fun onBindViewHolder(holder: SejarahViewHolder, position: Int) {
+        // Mendapatkan objek Transaksi dari daftar
         val transaksi: Transaksi = listTransaksi[position]
 
-        // --- 1. SET DATA TAMPILAN ---
+        // Mapping Data dari objek Transaksi ke Tampilan (TextViews & ImageView)
         holder.tvTanggalWaktu.text = transaksi.tanggalWaktu
         holder.tvHarga.text = transaksi.harga
         holder.tvRute.text = transaksi.rute
         holder.tvStatus.text = transaksi.status
+        // Mengatur ikon layanan berdasarkan ID sumber daya (resource ID)
         holder.ivLayananIcon.setImageResource(transaksi.jenisLayananIconResId)
 
-        // --- 2. LOGIKA TOMBOL "LAGI!" (RE-ORDER) ---
+        // --- LOGIKA TOMBOL "PESAN LAGI!" ---
         holder.btnPesanLagi.setOnClickListener {
             val context = holder.view.context
 
-            // a. Parsing String Rute untuk mendapatkan Asal dan Tujuan
-            // Format asumsi: "Asal → Tujuan"
-            val lokasi = transaksi.rute.split(" → ")
-            var lokasiDari = if (lokasi.size >= 2) lokasi[0] else transaksi.rute
-            var lokasiKe = if (lokasi.size >= 2) lokasi[1] else ""
+            // Catatan: Logika memecah string rute ("Asal → Tujuan") telah dihapus sesuai permintaan.
+            // Data rute tidak lagi diekstrak dan dikirimkan ke Activity tujuan.
 
-            // b. Cek Jenis Layanan berdasarkan Icon
+            // 2. Cek Jenis Layanan (Apakah Bus atau Ojek?) berdasarkan resource ID ikon
             if (transaksi.jenisLayananIconResId == R.drawable.bus || transaksi.jenisLayananIconResId == R.drawable.tiket_bus) {
 
-                // === JIKA RIWAYAT ADALAH BUS ===
-                // Arahkan ke PilihTiketActivity (Bus)
+                // === KASUS BUS: Navigasi ke Activity Pilih Tiket ===
                 val intent = Intent(context, PilihTiketActivity::class.java)
 
-                // Kirim data lokasi agar bisa digunakan untuk filter tiket
-                intent.putExtra("LOKASI_DARI_RIWAYAT", lokasiDari)
-                intent.putExtra("LOKASI_KE_RIWAYAT", lokasiKe)
+                // Logika pengiriman data lokasi DARI/KE RIWAYAT dihapus sesuai permintaan.
+                // Tidak ada data riwayat rute yang dikirimkan.
 
                 context.startActivity(intent)
 
             } else {
 
-                // === JIKA RIWAYAT ADALAH OJEK/TAKSI ===
-                // Tentukan tipe kendaraan (Mobil/Motor)
+                // === KASUS OJEK (MOTOR/MOBIL): Navigasi ke Activity Input Jemput ===
+                // Menentukan tipe kendaraan (motor/mobil) berdasarkan resource ID ikon
                 val tipeKendaraan = if (transaksi.jenisLayananIconResId == R.drawable.mobil) "mobil" else "motor"
 
-                // Arahkan ke InputJemputActivity (Pemesanan Ojek)
                 val intent = Intent(context, InputJemputActivity::class.java)
+                // Mengirim tipe kendaraan (mobil atau motor)
                 intent.putExtra("TIPE_KENDARAAN", tipeKendaraan)
-                intent.putExtra("LOKASI_DARI_RIWAYAT", lokasiDari)
-                intent.putExtra("LOKASI_KE_RIWAYAT", lokasiKe)
+                // Logika pengiriman data lokasi DARI/KE RIWAYAT dihapus sesuai permintaan.
+                // Tidak ada data riwayat rute yang dikirimkan.
+
                 context.startActivity(intent)
             }
         }
     }
 
+    /**
+     * Mengembalikan jumlah total item dalam daftar transaksi.
+     */
     override fun getItemCount(): Int = listTransaksi.size
 
+    /**
+     * ViewHolder: Kelas internal untuk menampung referensi ke semua View yang dibutuhkan
+     * dari layout item_sejarah.xml
+     */
     class SejarahViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val tvTanggalWaktu: TextView = view.findViewById(R.id.tvTanggalWaktu)
         val tvHarga: TextView = view.findViewById(R.id.tvHarga)

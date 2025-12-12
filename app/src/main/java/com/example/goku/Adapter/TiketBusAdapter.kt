@@ -8,18 +8,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goku.R
-import com.example.goku.model.TiketBus // Impor Data Model
-import com.example.goku.PembayaranBusActivity // Asumsi akan mengarah ke Pembayaran
+import com.example.goku.model.TiketBus // Impor Data Model untuk struktur data tiket
+import com.example.goku.PembayaranBusActivity // Asumsi mengarah ke Activity pembayaran
 
 /**
- * Adapter untuk RecyclerView Tiket Bus.
- * Menampilkan daftar tiket bus yang tersedia untuk dibeli.
+ * Adapter untuk menampilkan daftar Tiket Bus dalam RecyclerView.
+ * Menerima list data model TiketBus.
  */
 class TiketBusAdapter(val listTiket: List<TiketBus>) :
     RecyclerView.Adapter<TiketBusAdapter.TiketBusViewHolder>() {
 
-    // 1. ViewHolder: Menyimpan referensi element UI dari layout item_tiket_bus.xml
+    // 1. ViewHolder: Kelas internal untuk menampung dan mengelola referensi View
+    // dari layout item_tiket_bus.xml
     inner class TiketBusViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        // Deklarasi dan inisialisasi semua komponen UI
         val tvTanggalWaktu: TextView = view.findViewById(R.id.tvTanggalWaktuBus)
         val tvHarga: TextView = view.findViewById(R.id.tvHargaBus)
         val ivBusIcon: ImageView = view.findViewById(R.id.ivBusIcon)
@@ -28,42 +30,51 @@ class TiketBusAdapter(val listTiket: List<TiketBus>) :
         val btnBeli: TextView = view.findViewById(R.id.btnBeliTiket)
     }
 
-    // 2. onCreateViewHolder: Membuat instance ViewHolder baru dan meng-inflate layout
+    /**
+     * Metode yang dipanggil ketika RecyclerView membutuhkan ViewHolder baru.
+     * Meng-inflate layout item_tiket_bus.xml.
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TiketBusViewHolder {
         val layout = LayoutInflater.from(parent.context)
+            // Meng-inflate layout item_tiket_bus.xml
             .inflate(R.layout.item_tiket_bus, parent, false)
         return TiketBusViewHolder(layout)
     }
 
-    // 3. onBindViewHolder: Mengisi data tiket ke dalam ViewHolder pada posisi tertentu
+    /**
+     * Metode untuk mengikat (bind) data dari listTiket ke komponen UI di ViewHolder
+     * pada posisi (position) tertentu.
+     */
     override fun onBindViewHolder(holder: TiketBusViewHolder, position: Int) {
+        // Mendapatkan objek TiketBus pada posisi saat ini
         val tiket: TiketBus = listTiket[position]
 
-        // --- Set Data ke View ---
+        // Binding data ke komponen UI
         holder.tvTanggalWaktu.text = tiket.tanggalWaktu
         holder.tvHarga.text = tiket.harga
         holder.tvRute.text = tiket.rute
         holder.tvOperator.text = tiket.operator
         holder.ivBusIcon.setImageResource(tiket.iconResId)
 
-        // --- Logika Tombol "Beli" ---
+        // Menambahkan Click Listener pada tombol "Beli"
         holder.btnBeli.setOnClickListener {
-            // Pindah ke halaman Pembayaran (PembayaranBusActivity)
+            // Logika navigasi ke Activity PembayaranBusActivity
             val intent = Intent(holder.view.context, PembayaranBusActivity::class.java)
-            
-            // Kirim detail tiket yang dipilih
-            intent.putExtra("TIKET_ID", tiket.id)
-            intent.putExtra("TIKET_HARGA", tiket.harga)
-            
+
+            // Catatan: Logika pengiriman data tiket (seperti ID atau Harga)
+            // menggunakan intent.putExtra telah dihapus sesuai permintaan.
+
             holder.view.context.startActivity(intent)
         }
 
-        // --- Logika Klik Item (Opsional) ---
+        // Menambahkan Click Listener pada seluruh card (jika diperlukan untuk detail)
         holder.view.setOnClickListener {
-            // Bisa ditambahkan untuk melihat detail tiket lebih lengkap
+            // Logika opsional: Misalnya menampilkan detail tiket
         }
     }
 
-    // 4. getItemCount: Mengembalikan jumlah total item
+    /**
+     * Mengembalikan jumlah total item yang ada dalam daftar tiket.
+     */
     override fun getItemCount(): Int = listTiket.size
 }
