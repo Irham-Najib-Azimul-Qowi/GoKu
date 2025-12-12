@@ -8,6 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.google.android.material.button.MaterialButton
 
+/**
+ * InputJemputActivity
+ * Halaman untuk memasukkan lokasi penjemputan dan tujuan.
+ * Menerima tipe kendaraan (motor/mobil) dari HomeFragment.
+ */
 class InputJemputActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,13 +26,13 @@ class InputJemputActivity : AppCompatActivity() {
         val riwayatDari = intent.getStringExtra("LOKASI_DARI_RIWAYAT")
         val riwayatKe = intent.getStringExtra("LOKASI_KE_RIWAYAT")
 
-        // 2. Kenalkan Komponen
+        // 2. Inisialisasi Komponen UI
         val etDari = findViewById<EditText>(R.id.etDari)
         val etKe = findViewById<EditText>(R.id.etKe)
         val btnBatal = findViewById<AppCompatButton>(R.id.btnBatal)
         val btnKonfirmasi = findViewById<MaterialButton>(R.id.btnKonfirmasi)
 
-        // --- TAMBAHAN: ISI OTOMATIS JIKA ADA DATA RIWAYAT ---
+        // --- OPTIONAL: ISI OTOMATIS JIKA ADA DATA RIWAYAT ---
         if (riwayatDari != null) {
             etDari.setText(riwayatDari)
         }
@@ -36,7 +41,7 @@ class InputJemputActivity : AppCompatActivity() {
         }
         // ----------------------------------------------------
 
-        // 3. Logika Tampilan (Ikon Kendaraan)
+        // 3. Logika Tampilan (Sesuaikan Ikon & Teks Kendaraan)
         if (tipeKendaraan == "mobil") {
             btnKonfirmasi.setIconResource(R.drawable.mobil)
             btnKonfirmasi.text = "Pesan Mobil"
@@ -45,16 +50,17 @@ class InputJemputActivity : AppCompatActivity() {
             btnKonfirmasi.text = "Pesan Motor"
         }
 
-        // 4. Logika Tombol Batal
+        // 4. Logika Tombol Batal -> Kembali ke menu sebelumnya
         btnBatal.setOnClickListener {
             finish()
         }
 
-        // 5. Logika Tombol Konfirmasi
+        // 5. Logika Tombol Konfirmasi -> Lanjut ke Halaman Konfirmasi Jemput
         btnKonfirmasi.setOnClickListener {
             val lokasiDari = etDari.text.toString()
             val lokasiKe = etKe.text.toString()
 
+            // Validasi Input
             if (lokasiDari.isEmpty() || lokasiKe.isEmpty()) {
                 Toast.makeText(this, "Mohon isi lokasi jemput dan tujuan", Toast.LENGTH_SHORT).show()
             } else {

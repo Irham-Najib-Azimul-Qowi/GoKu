@@ -7,32 +7,32 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * RekomendasiLokasiActivity
+ * Halaman pencarian lokasi dengan fitur rekomendasi/saran (simulasi).
+ */
 class RekomendasiLokasiActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Pastikan nama file XML ini benar-benar 'activity_rekomendasi_lokasi'
         setContentView(R.layout.activity_rekomendasi_lokasi)
 
-        // 1. Inisialisasi View (SESUAIKAN DENGAN XML KAMU)
+        // 1. Inisialisasi View
         val searchBar = findViewById<LinearLayout>(R.id.layoutSearchBar)
         val hasilRekomendasi = findViewById<LinearLayout>(R.id.layoutHasilRekomendasi)
-
-        // PERBAIKAN: Gunakan TextView dan ID tvSearchText (Bukan EditText)
         val textPencarian = findViewById<TextView>(R.id.tvSearchText)
 
         // 2. Pasang Listener pada Search Bar
+        // Logika: Klik sekali munculkan simulasi hasil, klik lagi sembunyikan.
         searchBar.setOnClickListener {
-            // Cek kondisi saat ini
             if (hasilRekomendasi.visibility == View.GONE) {
-                // TAMPILKAN
+                // TAMPILKAN HASIL REKOMENDASI
                 hasilRekomendasi.visibility = View.VISIBLE
-                textPencarian.text = "Kampus 1 P" // Simulasi
+                textPencarian.text = "Kampus 1 P" // Simulasi user mengetik
             } else {
                 // SEMBUNYIKAN
                 hasilRekomendasi.visibility = View.GONE
-                textPencarian.text = "Cari Lokasi..." // Reset
+                textPencarian.text = "Cari Lokasi..." // Reset placeholder
             }
         }
 
@@ -40,7 +40,7 @@ class RekomendasiLokasiActivity : AppCompatActivity() {
         hasilRekomendasi.setOnClickListener {
             Toast.makeText(this, "Lokasi Kampus 1 Dipilih!", Toast.LENGTH_SHORT).show()
             hasilRekomendasi.visibility = View.GONE
-            textPencarian.text = "Kampus 1 PNM"
+            textPencarian.text = "Kampus 1 PNM" // Set hasil pilihan
         }
     }
 }

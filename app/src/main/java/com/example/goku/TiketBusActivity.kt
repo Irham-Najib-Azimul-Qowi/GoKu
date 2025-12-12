@@ -17,82 +17,97 @@ import java.util.Locale // Diperlukan untuk format tanggal
 
 
 // TiketBusActivity mengimplementasikan OnDateSetListener untuk menerima tanggal dari fragment
+/**
+ * TiketBusActivity
+ * Halaman pencarian tiket bus.
+ * User memilih kota asal, tujuan, dan tanggal keberangkatan.
+ * Mengimplementasikan OnDateSetListener untuk menangani input tanggal.
+ */
 class TiketBusActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
-    private lateinit var etTanggalBerangkat: EditText // Deklarasi properti untuk EditText
+    private lateinit var etTanggalBerangkat: EditText // Input tanggal keberangkatan
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_tiket_bus)
 
+        // Inisialisasi komponen UI
         val btnCariTiket = findViewById<MaterialButton>(R.id.btnCariTiket)
         val btnKembali = findViewById<AppCompatButton>(R.id.btnKembali)
-        // Inisialisasi EditText Tanggal Berangkat
         etTanggalBerangkat = findViewById(R.id.etTanggalBerangkat)
 
-        // 1. Listener untuk tombol "Cari Tiket"
+        // 1. Logika Tombol "Cari Tiket" -> Pindah ke hasil pencarian (PilihTiketActivity)
         btnCariTiket.setOnClickListener {
             kePilihTiket()
         }
 
-        // 2. Listener untuk tombol "Kembali" (ke Beranda/MenuActivity)
+        // 2. Logika Tombol "Kembali" -> Ke Menu Utama
         btnKembali.setOnClickListener {
             keBeranda()
         }
 
-        // 3. Listener untuk EditText Tanggal Berangkat -> menampilkan DatePicker Fragment
+        // 3. Listener pada Input Tanggal -> Buka Dialog Kalender
         etTanggalBerangkat.setOnClickListener {
             showDatePickerDialog()
         }
     }
 
+    /**
+     * Navigasi ke halaman PilihTiketActivity.
+     * Nantinya bisa membawa data asal, tujuan, dan tanggal.
+     */
     private fun kePilihTiket() {
         val intent = Intent(this, PilihTiketActivity::class.java)
         startActivity(intent)
     }
 
+    /**
+     * Kembali ke Halaman Utama (MenuActivity).
+     * Membersihkan back stack agar tidak numpuk.
+     */
     private fun keBeranda() {
         val intent = Intent(this, MenuActivity::class.java)
-        // Menambahkan flag untuk membersihkan stack aktivitas
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
-        finish() // Menutup TiketBusActivity
+        finish()
     }
 
+    /**
+     * Menampilkan DatePickerFragment.
+     */
     private fun showDatePickerDialog() {
-        // Menampilkan DatePickerFragment
         val newFragment = DatePickerFragment()
         newFragment.show(supportFragmentManager, "datePicker")
     }
 
-    // Metode dari DatePickerDialog.OnDateSetListener yang dipanggil saat tanggal dipilih
+    /**
+     * Callback saat tanggal dipilih di dialog.
+     * Mengubah teks pada EditText sesuai tanggal yang dipilih.
+     */
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        // Buat objek Calendar dan atur tanggal yang dipilih
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
 
-        // Format tanggal ke format "dd/MM/yyyy" dan set ke EditText
+        // Format tanggal ke "dd/MM/yyyy" (misal 23/08/2025)
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         etTanggalBerangkat.setText(dateFormat.format(calendar.time))
     }
 
     /**
-     * Kelas bersarang (Nested Class) untuk DatePickerDialog yang di-host dalam DialogFragment.
-     * Ini sesuai dengan panduan Android.
+     * Fragment Dialog untuk pemilih tanggal (Date Picker).
      */
     class DatePickerFragment : DialogFragment() {
 
         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-            // Gunakan tanggal saat ini sebagai default untuk dialog
+            // Gunakan tanggal saat ini sebagai default
             val c = Calendar.getInstance()
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
 
-            // Buat instance baru dari DatePickerDialog
-            // `activity as DatePickerDialog.OnDateSetListener` akan memastikan host activity
-            // (TiketBusActivity) menerima callback `onDateSet`
+            // Kembalikan instance DatePickerDialog
+            // 'activity' di-cast ke OnDateSetListener agar activity induk menerima hasilnya
             return DatePickerDialog(requireContext(), activity as DatePickerDialog.OnDateSetListener, year, month, day)
         }
     }

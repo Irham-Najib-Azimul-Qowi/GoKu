@@ -11,11 +11,14 @@ import com.example.goku.R
 import com.example.goku.model.TiketBus // Impor Data Model
 import com.example.goku.PembayaranBusActivity // Asumsi akan mengarah ke Pembayaran
 
-// Mengikuti algoritma dari ProdukAdapter.kt:
+/**
+ * Adapter untuk RecyclerView Tiket Bus.
+ * Menampilkan daftar tiket bus yang tersedia untuk dibeli.
+ */
 class TiketBusAdapter(val listTiket: List<TiketBus>) :
     RecyclerView.Adapter<TiketBusAdapter.TiketBusViewHolder>() {
 
-    // 1. ViewHolder: Menyimpan referensi View dari item_tiket_bus.xml
+    // 1. ViewHolder: Menyimpan referensi element UI dari layout item_tiket_bus.xml
     inner class TiketBusViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val tvTanggalWaktu: TextView = view.findViewById(R.id.tvTanggalWaktuBus)
         val tvHarga: TextView = view.findViewById(R.id.tvHargaBus)
@@ -25,38 +28,39 @@ class TiketBusAdapter(val listTiket: List<TiketBus>) :
         val btnBeli: TextView = view.findViewById(R.id.btnBeliTiket)
     }
 
-    // 2. onCreateViewHolder: Membuat ViewHolder baru dengan layout yang di-inflate
+    // 2. onCreateViewHolder: Membuat instance ViewHolder baru dan meng-inflate layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TiketBusViewHolder {
         val layout = LayoutInflater.from(parent.context)
-            // Meng-inflate layout item_tiket_bus.xml
             .inflate(R.layout.item_tiket_bus, parent, false)
         return TiketBusViewHolder(layout)
     }
 
-    // 3. onBindViewHolder: Mengikat data dari listTiket ke View Holder
+    // 3. onBindViewHolder: Mengisi data tiket ke dalam ViewHolder pada posisi tertentu
     override fun onBindViewHolder(holder: TiketBusViewHolder, position: Int) {
         val tiket: TiketBus = listTiket[position]
 
-        // Binding data ke komponen UI
+        // --- Set Data ke View ---
         holder.tvTanggalWaktu.text = tiket.tanggalWaktu
         holder.tvHarga.text = tiket.harga
         holder.tvRute.text = tiket.rute
         holder.tvOperator.text = tiket.operator
         holder.ivBusIcon.setImageResource(tiket.iconResId)
 
-        // Menambahkan Click Listener pada tombol "Beli"
+        // --- Logika Tombol "Beli" ---
         holder.btnBeli.setOnClickListener {
-            // Logika navigasi saat tombol Beli ditekan
+            // Pindah ke halaman Pembayaran (PembayaranBusActivity)
             val intent = Intent(holder.view.context, PembayaranBusActivity::class.java)
-            // Anda bisa mengirim data tiket yang dipilih ke activity berikutnya
+            
+            // Kirim detail tiket yang dipilih
             intent.putExtra("TIKET_ID", tiket.id)
             intent.putExtra("TIKET_HARGA", tiket.harga)
+            
             holder.view.context.startActivity(intent)
         }
 
-        // Menambahkan Click Listener pada seluruh card (jika perlu)
+        // --- Logika Klik Item (Opsional) ---
         holder.view.setOnClickListener {
-            // Logika opsional: Misalnya menampilkan detail tiket
+            // Bisa ditambahkan untuk melihat detail tiket lebih lengkap
         }
     }
 

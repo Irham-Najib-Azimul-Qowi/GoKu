@@ -8,6 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 
+/**
+ * PesanFragment menampilkan daftar chat yang sedang berlangsung.
+ * Saat ini berisi dummy chat list yang mengarah ke ChatActivity.
+ */
 class PesanFragment : Fragment() {
 
     override fun onCreateView(
@@ -21,7 +25,7 @@ class PesanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Cari ID tombol chat dari XML (chatItem1 dan chatItem2)
+        // 1. Cari ID tombol chat dari XML (Pastikan ID ini sesuai di layout)
         val chatDriverJoko = view.findViewById<LinearLayout>(R.id.chatItem1)
         val chatDriverRiyan = view.findViewById<LinearLayout>(R.id.chatItem2)
 
@@ -30,7 +34,7 @@ class PesanFragment : Fragment() {
             // Pindah ke ChatActivity
             val intent = Intent(requireContext(), ChatActivity::class.java)
 
-            // (Opsional) Kita titipkan nama driver biar nanti bisa diambil di ChatActivity
+            // (Opsional) Mengirim data nama driver ke ChatActivity
             intent.putExtra("NAMA_DRIVER", "Driver Joko")
 
             startActivity(intent)
@@ -41,7 +45,7 @@ class PesanFragment : Fragment() {
             // Pindah ke ChatActivity
             val intent = Intent(requireContext(), ChatActivity::class.java)
 
-            // (Opsional) Kita titipkan nama driver
+            // (Opsional) Mengirim data nama driver ke ChatActivity
             intent.putExtra("NAMA_DRIVER", "Driver Riyan")
 
             startActivity(intent)

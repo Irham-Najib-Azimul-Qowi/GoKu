@@ -5,6 +5,11 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * CallActivity
+ * Halaman simulasi panggilan telepon.
+ * Menampilkan antarmuka panggilan dengan tombol untuk mengakhiri telepon.
+ */
 class CallActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,7 +20,7 @@ class CallActivity : AppCompatActivity() {
 
         btnEndCall.setOnClickListener {
             Toast.makeText(this, "Telepon Berakhir", Toast.LENGTH_SHORT).show()
-            // Finish akan menutup CallActivity dan otomatis kembali ke ChatActivity (yg ada di belakangnya)
+            // Finish akan menutup CallActivity dan otomatis kembali ke aktivitas sebelumnya (Chat/DriverMenuju)
             finish()
         }
     }

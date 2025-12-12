@@ -13,41 +13,55 @@ import com.example.goku.PilihTiketActivity // Pastikan Import ini ada
 import com.example.goku.R
 import com.example.goku.model.Transaksi
 
+/**
+ * Adapter untuk RecyclerView Riwayat Transaksi.
+ * Menghubungkan data List<Transaksi> ke layout item_sejarah.xml.
+ */
 class SejarahAdapter(val listTransaksi: List<Transaksi>) :
     RecyclerView.Adapter<SejarahAdapter.SejarahViewHolder>() {
 
+    /**
+     * Membuat ViewHolder baru.
+     * Meng-inflate layout XML item list (item_sejarah.xml).
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SejarahViewHolder {
         val layout: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_sejarah, parent, false)
         return SejarahViewHolder(layout)
     }
 
+    /**
+     * Menghubungkan data ke View pada posisi tertentu.
+     * Mengatur teks, gambar, dan logika klik tombol "Pesan Lagi".
+     */
     override fun onBindViewHolder(holder: SejarahViewHolder, position: Int) {
         val transaksi: Transaksi = listTransaksi[position]
 
-        // Mapping Data ke Tampilan
+        // --- 1. SET DATA TAMPILAN ---
         holder.tvTanggalWaktu.text = transaksi.tanggalWaktu
         holder.tvHarga.text = transaksi.harga
         holder.tvRute.text = transaksi.rute
         holder.tvStatus.text = transaksi.status
         holder.ivLayananIcon.setImageResource(transaksi.jenisLayananIconResId)
 
-        // --- LOGIKA TOMBOL "LAGI!" ---
+        // --- 2. LOGIKA TOMBOL "LAGI!" (RE-ORDER) ---
         holder.btnPesanLagi.setOnClickListener {
             val context = holder.view.context
 
-            // 1. Pecah String Rute ("Asal → Tujuan")
+            // a. Parsing String Rute untuk mendapatkan Asal dan Tujuan
+            // Format asumsi: "Asal → Tujuan"
             val lokasi = transaksi.rute.split(" → ")
             var lokasiDari = if (lokasi.size >= 2) lokasi[0] else transaksi.rute
             var lokasiKe = if (lokasi.size >= 2) lokasi[1] else ""
 
-            // 2. Cek Jenis Layanan (Apakah Bus atau Ojek?)
+            // b. Cek Jenis Layanan berdasarkan Icon
             if (transaksi.jenisLayananIconResId == R.drawable.bus || transaksi.jenisLayananIconResId == R.drawable.tiket_bus) {
 
-                // === KASUS BUS (DIUBAH KE PILIH TIKET) ===
+                // === JIKA RIWAYAT ADALAH BUS ===
+                // Arahkan ke PilihTiketActivity (Bus)
                 val intent = Intent(context, PilihTiketActivity::class.java)
 
-                // Kita tetap kirim datanya, barangkali nanti PilihTiketActivity butuh buat filter
+                // Kirim data lokasi agar bisa digunakan untuk filter tiket
                 intent.putExtra("LOKASI_DARI_RIWAYAT", lokasiDari)
                 intent.putExtra("LOKASI_KE_RIWAYAT", lokasiKe)
 
@@ -55,9 +69,11 @@ class SejarahAdapter(val listTransaksi: List<Transaksi>) :
 
             } else {
 
-                // === KASUS OJEK (MOTOR/MOBIL) ===
+                // === JIKA RIWAYAT ADALAH OJEK/TAKSI ===
+                // Tentukan tipe kendaraan (Mobil/Motor)
                 val tipeKendaraan = if (transaksi.jenisLayananIconResId == R.drawable.mobil) "mobil" else "motor"
 
+                // Arahkan ke InputJemputActivity (Pemesanan Ojek)
                 val intent = Intent(context, InputJemputActivity::class.java)
                 intent.putExtra("TIPE_KENDARAAN", tipeKendaraan)
                 intent.putExtra("LOKASI_DARI_RIWAYAT", lokasiDari)

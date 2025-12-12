@@ -9,6 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 
+/**
+ * DalamPerjalananActivity
+ * Menampilkan status saat user sedang dalam perjalanan di atas kendaraan.
+ * Otomatis pindah ke SampaiTujuanActivity setelah 3 detik (Simulasi).
+ */
 class DalamPerjalananActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,22 +23,21 @@ class DalamPerjalananActivity : AppCompatActivity() {
         val btnChat = findViewById<ImageView>(R.id.btnChat)
         val btnCall = findViewById<ImageView>(R.id.btnCall)
 
+        // Bisa Chat driver saat diperjalanan (misal info jalan)
         btnChat.setOnClickListener {
             val intent = Intent(this, ChatActivity::class.java)
             startActivity(intent)
         }
 
+        // Bisa Telepon driver
         btnCall.setOnClickListener {
             val intent = Intent(this, CallActivity::class.java)
             startActivity(intent)
         }
 
         val tipeKendaraan = intent.getStringExtra("TIPE_KENDARAAN")
-//        findViewById<View>(R.id.btnChat).setOnClickListener {
-//            Toast.makeText(this, "Fitur Chat belum tersedia", Toast.LENGTH_SHORT).show()
-//
-//        }
 
+        // Simulasi sampai tujuan dalam 3 detik
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, SampaiTujuanActivity::class.java)
             intent.putExtra("TIPE_KENDARAAN", tipeKendaraan)

@@ -7,6 +7,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * PenentuanJemputActivity
+ * Halaman alternatif untuk menentukan tujuan jemputan (Mungkin Work in Progress / Versi Lama).
+ */
 class PenentuanJemputActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +34,9 @@ class PenentuanJemputActivity : AppCompatActivity() {
             val tujuan = etTujuan.text.toString()
 
             if (tujuan.isNotEmpty()) {
-                // Jika tujuan sudah diisi
+                // Jika tujuan sudah diisi, tampilkan konfirmasi
                 Toast.makeText(this, "Pesanan ke $tujuan Dikonfirmasi!", Toast.LENGTH_SHORT).show()
-                // Disini nanti bisa lanjut ke halaman berikutnya (misal: mencari driver)
+                // Disini nanti bisa lanjut ke halaman berikutnya
             } else {
                 // Jika tujuan masih kosong
                 Toast.makeText(this, "Silakan isi tujuan dulu", Toast.LENGTH_SHORT).show()

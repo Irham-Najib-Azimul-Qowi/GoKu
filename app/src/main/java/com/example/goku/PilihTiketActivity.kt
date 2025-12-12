@@ -15,6 +15,11 @@ import androidx.appcompat.widget.AppCompatButton // Tambahkan import untuk AppCo
 import com.example.goku.model.TiketBus
 import com.example.goku.adapter.TiketBusAdapter
 
+/**
+ * PilihTiketActivity
+ * Halaman untuk melihat dan memilih jadwal tiket bus yang tersedia.
+ * Menampilkan daftar tiket menggunakan RecyclerView.
+ */
 class PilihTiketActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,19 +27,11 @@ class PilihTiketActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_pilih_tiket_bus)
 
-        // Atur padding untuk system bars
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
-
-        // Logika Tombol Kembali (Sesuai dengan ID: btnKembaliTiketBus dari XML)
+        // Logika Tombol Kembali -> Kembali ke halaman pencarian tiket (TiketBusActivity)
         val btnBack: AppCompatButton = findViewById(R.id.btnKembaliTiketBus)
         btnBack.setOnClickListener {
-            // Logika untuk kembali ke MenuActivity (Beranda)
             val intent = Intent(this, TiketBusActivity::class.java)
-            // Bendera untuk mengosongkan tumpukan aktivitas di atas MenuActivity
+            // Bendera untuk mengosongkan tumpukan aktivitas di atas MenuActivity/TiketBusActivity
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish() // Tutup PilihTiketActivity
@@ -43,6 +40,7 @@ class PilihTiketActivity : AppCompatActivity() {
         // 1. Inisialisasi RecyclerView
         val rvTiketBus = findViewById<RecyclerView>(R.id.rvTiketBus)
 
+        // (Opsional) Listener pada RecyclerView langsung (biasanya dihandle di Adapter)
         rvTiketBus.setOnClickListener {
             val intent = Intent(this, PembayaranBusActivity::class.java)
             startActivity(intent)
@@ -51,15 +49,18 @@ class PilihTiketActivity : AppCompatActivity() {
         // 2. Buat data dummy Tiket Bus
         val dataTiket = generateDummyBusTickets()
 
-        // 3. Pasang Adapter
+        // 3. Pasang Adapter ke RecyclerView
         val adapter = TiketBusAdapter(dataTiket)
         rvTiketBus.adapter = adapter
 
-        // 4. Pasang Layout Manager
+        // 4. Pasang Layout Manager (Linear Vertical)
         rvTiketBus.layoutManager = LinearLayoutManager(this)
     }
 
-    // Fungsi untuk menghasilkan data dummy
+    /**
+     * Membuat daftar dummy tiket bus.
+     * Mengembalikan list objek TiketBus.
+     */
     private fun generateDummyBusTickets(): List<TiketBus> {
         return listOf(
             TiketBus(
